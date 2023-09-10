@@ -12,6 +12,9 @@ cd dots
 # Brings up a cli theme picker and sets themes to match
 ./setup.sh
 
+# Create .giconfig symlink
+ln -s ~/.gitconfig .gitconfig
+
 # Create neovim symlink
 ln -s ~/.config/nvim nvim
 
@@ -32,6 +35,9 @@ wsl ./setup.sh
 
 # The below commands only work in cmd
 cmd.exe
+
+# Symlink .gitconfig
+mklink /H %USERPROFILE%\.gitconfig .gitconfig
 
 # Symlink neovim
 mklink /J %LOCALAPPDATA%\nvim nvim
