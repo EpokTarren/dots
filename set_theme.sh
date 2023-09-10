@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Remove special charcters from the name
-export normalized=$(echo "$1" | tr [:upper:] [:lower:] | tr ' ' _ | tr -d '[:punct:]')
+export normalized=$(echo "$1" | tr [:upper:] [:lower:] | tr -d '[:punct:]' | tr ' ' '_')
 export normalized_=$(echo $normalized | tr '_' '-')
 export version=$(./version.sh)
 
