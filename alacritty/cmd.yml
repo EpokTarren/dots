@@ -1,0 +1,5 @@
+import:
+  - ~/AppData/Roaming/alacritty/base.yml
+
+shell:
+  program: cmd
