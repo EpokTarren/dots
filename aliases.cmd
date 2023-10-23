@@ -8,13 +8,17 @@
 :: Start in home directory if nothing else is specified
 :: Based on https://stackoverflow.com/a/4900046/16195169
 
-IF /I x"%COMSPEC%"==x%CMDCMDLINE% (cd /D %USERPROFILE%)
-IF /I x"%COMSPEC%"==x"C:\Windows\system32\cmd.exe" (cd /D %USERPROFILE%)
+IF /I "%COMSPEC%"==%CMDCMDLINE% (cd /D %USERPROFILE%)
+
+:: Alacritty will start in one of these when launched from the start menu and
+:: PowerToys run respectively, these are unlikely intentional start directories
+IF /I "%cd%"=="C:\Windows\system32" (cd /D %USERPROFILE%)
+IF /I "%cd%"=="C:\ProgramData\Microsoft\Windows\Start Menu\Programs\Alacritty" (cd /D %USERPROFILE%)
 
 :: Util
 
 DOSKEY $=$*
-DOSKEY ls=wsl ls $*
+DOSKEY ls=eza --icons -a $*
 DOSKEY mv=wsl mv $*
 DOSKEY rm=wsl rm $*
 
