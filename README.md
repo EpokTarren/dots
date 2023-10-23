@@ -13,13 +13,13 @@ cd dots
 ./setup.sh
 
 # Create .giconfig symlink
-ln -s ~/.gitconfig .gitconfig
+ln -s "$PWD/.gitconfig" ~/.gitconfig
 
 # Create neovim symlink
-ln -s ~/.config/nvim nvim
+ln -s "$PWD/nvim" ~/.config/nvim
 
 # Create alacritty symlink
-ln -s ~/.config/alacritty alacritty
+ln -s "$PWD/alacritty" ~/.config/alacritty
 ```
 
 ## Windows
