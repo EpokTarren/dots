@@ -19,6 +19,7 @@ IF /I "%cd%"=="C:\ProgramData\Microsoft\Windows\Start Menu\Programs\Alacritty" (
 
 DOSKEY $=$*
 DOSKEY ls=eza --icons -a $*
+DOSKEY ll=eza --icons -la $*
 DOSKEY mv=wsl mv $*
 DOSKEY rm=wsl rm $*
 
