@@ -25,7 +25,9 @@ DOSKEY rm=wsl rm $*
 :: Git
 
 DOSKEY gap=git add -p $*
-DOSKEY st=git status
+DOSKEY st=git status $*
 DOSKEY cm=git commit $*
 DOSKEY am=git commit --amend $*
 DOSKEY amn=git commit --amend --no-edit $*
+DOSKEY push=git push $*
+DOSKEY diff=git diff $*
