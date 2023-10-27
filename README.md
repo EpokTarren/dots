@@ -50,4 +50,8 @@ mkdir %APPDATA%\alacritty
 mklink /H %APPDATA%\alacritty\alacritty.yml alacritty\cmd.yml
 mklink /H %APPDATA%\alacritty\base.yml alacritty\alacritty.yml
 mklink /H %APPDATA%\alacritty\theme.yml alacritty\theme.yml
+
+# Keyboard layouts
+mklink /J %USERPROFILE%\qmk_firmware\keyboards\ferris\keymaps\tarren keymaps\34
+mklink /J %USERPROFILE%\qmk_firmware\keyboards\tokyokeyboard\tokyo60\keymaps\tarren keymaps\hhkb
 ```
