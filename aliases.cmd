@@ -22,6 +22,7 @@ DOSKEY ls=eza --icons -a $*
 DOSKEY ll=eza --icons -la $*
 DOSKEY mv=wsl mv $*
 DOSKEY rm=wsl rm $*
+DOSKEY cat=bat -p $*
 
 :: Git
 
