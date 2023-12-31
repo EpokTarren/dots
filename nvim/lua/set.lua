@@ -21,6 +21,9 @@ vim.opt.undofile = true
 vim.opt.incsearch = true
 vim.opt.hlsearch = false
 
+-- Word wrap
+vim.opt.linebreak = true
+
 -- Enable mouse
 vim.opt.mouse = "a"
 
