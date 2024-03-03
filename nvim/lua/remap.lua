@@ -16,3 +16,8 @@ vim.keymap.set("n", "<C-u>", "<C-u>zz")
 -- Paste and delete without overwriting the cliboard
 vim.keymap.set("x", "<leader>p", [["_dP]])
 vim.keymap.set({ "n", "v" }, "<leader>d", [["_d]])
+
+-- LSP action
+vim.keymap.set({ "n", "v" }, "<leader>.", function()
+	vim.lsp.buf.code_action()
+end)
