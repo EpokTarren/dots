@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 
 # Remove special charcters from the name
 export normalized=$(echo "$1" | tr [:upper:] [:lower:] | tr -d '[:punct:]' | tr ' ' '_')

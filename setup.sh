@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 
 export version=$(./version.sh)
 export dir=$(pwd)
