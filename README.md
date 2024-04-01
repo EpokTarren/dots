@@ -47,9 +47,9 @@ mklink /J %APPDATA%\alacritty alacritty
 
 # Symlink alacritty with cmd
 mkdir %APPDATA%\alacritty
-mklink /H %APPDATA%\alacritty\alacritty.yml alacritty\cmd.yml
-mklink /H %APPDATA%\alacritty\base.yml alacritty\alacritty.yml
-mklink /H %APPDATA%\alacritty\theme.yml alacritty\theme.yml
+mklink /H %APPDATA%\alacritty\alacritty.toml alacritty\cmd.toml
+mklink /H %APPDATA%\alacritty\base.toml alacritty\alacritty.toml
+mklink /H %APPDATA%\alacritty\theme.toml alacritty\theme.toml
 
 # Keyboard layouts
 mklink /J %USERPROFILE%\qmk_firmware\keyboards\ferris\keymaps\tarren keymaps\34

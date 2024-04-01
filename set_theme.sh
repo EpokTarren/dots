@@ -16,5 +16,4 @@ fi
 echo "let g:theme_style = '$1'" > $dots/nvim/theme.vim
 
 ### Alacritty ###
-echo "import:" > $dots/alacritty/theme.yml
-echo "  - $local/themes/$version/alacritty/$normalized_.yml" >> $dots/alacritty/theme.yml
+echo "import = [\"$local/themes/$version/alacritty/$normalized_.toml\"]"
