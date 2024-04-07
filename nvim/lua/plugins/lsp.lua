@@ -54,6 +54,7 @@ function formatter()
 			html = { require("formatter.filetypes.html").prettierd },
 			json = { require("formatter.filetypes.json").prettierd },
 			yaml = { require("formatter.filetypes.yaml").prettierd },
+			jsonc = { require("formatter.filetypes.json").prettierd },
 			svelte = { require("formatter.filetypes.svelte").prettierd },
 			markdown = { require("formatter.filetypes.markdown").prettierd },
 			javascript = { require("formatter.filetypes.javascript").prettierd },
