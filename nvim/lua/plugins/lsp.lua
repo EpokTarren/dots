@@ -51,6 +51,7 @@ function formatter()
 			rust = { require("formatter.filetypes.rust").rustfmt },
 
 			css = { require("formatter.filetypes.css").prettierd },
+			scss = { require("formatter.filetypes.css").prettierd },
 			html = { require("formatter.filetypes.html").prettierd },
 			json = { require("formatter.filetypes.json").prettierd },
 			yaml = { require("formatter.filetypes.yaml").prettierd },
