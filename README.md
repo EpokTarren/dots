@@ -24,6 +24,18 @@ ln -s "$PWD/alacritty" ~/.config/alacritty
 # Create bash symlinks
 ln -s "$PWD/.bashrc" ~/
 ln -s "$PWD/.bash_profile" ~/
+
+# Create hyprland and echosystem symlinks
+ln -s "$PWD/hypr" ~/.config
+# Link system config
+ln -sf "$PWD/hypr/{hostname}.conf" "$PWD/hypr/system.conf"
+
+# Create waybar symlink
+ln -s "$PWD/waybar" ~/.config
+
+# Create dunst symlink
+mkdir -p ~/.config/dunst
+ln -s "$PWD/dunstrc" ~/.config/dunst
 ```
 
 ## Windows
