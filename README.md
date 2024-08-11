@@ -20,6 +20,10 @@ ln -s "$PWD/nvim" ~/.config/nvim
 
 # Create alacritty symlink
 ln -s "$PWD/alacritty" ~/.config/alacritty
+
+# Create bash symlinks
+ln -s "$PWD/.bashrc" ~/
+ln -s "$PWD/.bash_profile" ~/
 ```
 
 ## Windows
