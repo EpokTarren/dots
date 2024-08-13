@@ -45,6 +45,7 @@
     max_icon_size = 128
     icon_path = ""
 
+    dmenu = bemenu -p dunst:
     browser = xdg-open
     corner_radius = 8
 
