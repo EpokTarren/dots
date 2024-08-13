@@ -43,7 +43,7 @@ fi
 echo Available themes
 PS3="Select a theme: "
 
-select theme in Rider "Good Job" Slime "\"Girl\"" Bloody "Arch Wizard" Imouto? Gyaru
+select theme in Rider "Good Job" Slime "\"Girl\"" Bloody "Arch Wizard" Imouto? Gyaru Commander
 do
     ./set_theme.sh "$theme"
     echo "Set theme: $theme"
