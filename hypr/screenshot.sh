@@ -1,14 +1,14 @@
 #!/bin/sh
 
 filename() {
-    echo -n "~/Screenshots/$(date +"%Y%m%dT%Hh%Mm%Ss$1".png)"
+    echo -n "$HOME/Screenshots/$(date +"%Y%m%dT%Hh%Mm%Ss$1".png)"
 }
 
 screenshot() {
     grim -g "$1" - | tee "$2" | wl-copy -t image/png && echo "$2"
 
     test ~/Screenshots/screenshot.wav && mpv ~/Screenshots/screenshot.wav &> /dev/null
-    case "$(dunstify --action="default,Open" "Screenshot" "$2" -u low)" in
+    case "$(dunstify --action="default,Open" "Screenshot" "$(basename $2)" -u low)" in
         "default") xdg-open "$2" ;;
     esac
 }
