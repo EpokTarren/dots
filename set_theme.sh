@@ -32,3 +32,22 @@ pgrep Hyprland &> /dev/null && hyprctl reload &> /dev/null
 ln -sf $local/themes/$version/gtk-css/terminal.css $local/waybar/terminal.css
 ln -sf $local/themes/$version/gtk-css/$normalized_.css $local/waybar/theme.css
 pgrep waybar &> /dev/null && pkill waybar &> /dev/null && waybar &> /dev/null &
+
+### Dunstrc ###
+colours=$(cat "$local/waybar/theme.css")
+
+bg0=$(echo "$colours" | rg bg0 | sed "s/.*#\|;//g")
+comp0=$(echo "$colours" | rg comp0 | sed "s/.*#\|;//g")
+plain=$(echo "$colours" | rg plain | sed "s/.*#\|;//g")
+primary0=$(echo "$colours" | rg primary0 | sed "s/.*#\|;//g")
+primary3=$(echo "$colours" | rg primary3 | sed "s/.*#\|;//g")
+
+cat dunstrc                        \
+    | sed "s/#efebfa/#$plain/g"    \
+    | sed "s/#1d2025/#$bg0/g"      \
+    | sed "s/#3381ff/#$primary0/g" \
+    | sed "s/#d2ccff/#$primary3/g" \
+    | sed "s/#ffcc66/#$comp0/g"    \
+    > .theme.dunstrc
+
+pgrep dunst &> /dev/null && pkill dunst &> /dev/null && dunst &> /dev/null &
