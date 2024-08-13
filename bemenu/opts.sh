@@ -1,0 +1,33 @@
+source ~/.config/bemenu/theme.sh
+
+export BEMENU_OPTS="-l 10
+    --ignorecase
+    --center
+    -W 0.4
+    --wrap
+    --hp 8
+    --fn \"FiraCode 14\"
+    --margin 8
+    --border 2
+    --bdr \"$primary0\"
+    --tf  \"$plain\"
+    --sf  \"$primary0\"
+    --cf  \"$plain\"
+    --hf  \"$primary0\"
+    --scf \"$primary0\"
+    --af  \"$plain\"
+    --nf  \"$plain\"
+    --tb  \"$bg0\"
+    --fb  \"$bg0\"
+    --cb  \"$bg0\"
+    --nb  \"$bg0\"
+    --hb  \"$bg0\"
+    --fbb \"$bg0\"
+    --sb  \"$bg0\"
+    --ab  \"$bg0\"
+    --scb \"$bg0\"
+    --hb  \"$bg0\"
+    --fbb \"$bg0\"
+    --sb  \"$bg0\"
+    --ab  \"$bg0\"
+    --scb \"$bg0\""

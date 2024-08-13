@@ -33,7 +33,7 @@ ln -sf $local/themes/$version/gtk-css/terminal.css $local/waybar/terminal.css
 ln -sf $local/themes/$version/gtk-css/$normalized_.css $local/waybar/theme.css
 pgrep waybar &> /dev/null && pkill waybar &> /dev/null && waybar &> /dev/null &
 
-### Dunstrc ###
+### Parse colours ###
 colours=$(cat "$local/waybar/theme.css")
 
 bg0=$(echo "$colours" | rg bg0 | sed "s/.*#\|;//g")
@@ -42,6 +42,7 @@ plain=$(echo "$colours" | rg plain | sed "s/.*#\|;//g")
 primary0=$(echo "$colours" | rg primary0 | sed "s/.*#\|;//g")
 primary3=$(echo "$colours" | rg primary3 | sed "s/.*#\|;//g")
 
+### Dunstrc ###
 cat dunstrc                        \
     | sed "s/#efebfa/#$plain/g"    \
     | sed "s/#1d2025/#$bg0/g"      \
@@ -51,3 +52,8 @@ cat dunstrc                        \
     > .theme.dunstrc
 
 pgrep dunst &> /dev/null && pkill dunst &> /dev/null && dunst &> /dev/null &
+
+### Bemenu ###
+echo "bg0=\"#$bg0\""           >  bemenu/theme.sh
+echo "plain=\"#$plain\""       >> bemenu/theme.sh
+echo "primary0=\"#$primary0\"" >> bemenu/theme.sh

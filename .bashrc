@@ -28,3 +28,8 @@ alias fail_colour='[ $? -ne 0 ] && echo -n ";31"'
 
 # Output current git branch if any.
 alias branch='b=$(git rev-parse --abbrev-ref HEAD 2> /dev/null); [ $? -eq 0 ] && echo -n "$b "'
+
+# Load BMENU_OPTS into env.
+if [[ -f "~/.config/bemenu/opts.sh" ]]; then
+    source ~/.config/bemenu/opts.sh
+fi

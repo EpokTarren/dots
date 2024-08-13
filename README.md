@@ -36,6 +36,9 @@ ln -s "$PWD/waybar" ~/.config
 # Create dunst symlink
 mkdir -p ~/.config/dunst
 ln -s "$PWD/.theme.dunstrc" ~/.config/dunst/dunstrc
+
+# Create bemenu symlink
+ln -s "$PWD/bemenu" ~/.config
 ```
 
 ## Windows
