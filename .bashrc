@@ -1,6 +1,8 @@
 # Util
-alias ls='exa --icons -a'
-alias ll='exa --icons -la'
+alias ls='exa --icons'
+alias la='exa --icons -a'
+alias ll='exa --icons -l'
+alias lla='exa --icons -la'
 alias cat='bat -p'
 
 # Git
