@@ -56,12 +56,14 @@
 [urgency_low]
     background = "#1d2025"
     foreground = "#efebfa"
+    highlight = "#d2ccff"
     frame_color = "#d2ccff"
     timeout = 20
 
 [urgency_normal]
     background = "#1d2025"
     foreground = "#efebfa"
+    highlight = "#3381ff"
     frame_color = "#3381ff"
     timeout = 30
     override_pause_level = 30
@@ -69,6 +71,7 @@
 [urgency_critical]
     background = "#1d2025"
     foreground = "#efebfa"
+    highlight = "#ffcc66"
     frame_color = "#ffcc66"
     timeout = 0
     override_pause_level = 60
