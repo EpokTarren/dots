@@ -1,3 +1,3 @@
 source ~/.config/bemenu/opts.sh
-shift
+shift &> /dev/null
 bemenu $*

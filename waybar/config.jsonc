@@ -17,13 +17,9 @@
         "power-profiles-daemon",
         "tray",
         "clock",
-        "group/power",
+        "custom/divider",
+        "custom/power",
     ],
-
-    "group/power": {
-        "orientation": "inherit",
-        "modules": ["custom/sleep", "custom/reboot", "custom/power"],
-    },
 
     "hyprland/window": {
         "rewrite": {
@@ -33,25 +29,14 @@
         },
     },
 
+    "custom/divider": { "format": "|" },
+
     "custom/power": {
         "format": "",
         "tooltip": true,
-        "tooltip-format": "Shutdown.",
-        "on-click": "shutdown now",
-    },
-
-    "custom/sleep": {
-        "format": "",
-        "tooltip": true,
-        "tooltip-format": "Suspend system.",
-        "on-click": "hyprlock -q & systemctl suspend",
-    },
-
-    "custom/reboot": {
-        "format": "",
-        "tooltip": true,
-        "tooltip-format": "Reboot",
-        "on-click": "reboot",
+        "tooltip-format": "Power options.",
+        // Sleep so bemenu does not pick up click on this.
+        "on-click": "sleep 0.4 && ~/.config/hypr/power.sh",
     },
 
     "hyprland/workspaces": {

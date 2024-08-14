@@ -215,30 +215,12 @@ button:hover {
     font-weight: 500;
 }
 
-#custom-poweroptions {
-    color: @primary1;
-    padding-right: 6px;
-}
-
-#custom-bar {
-    font-size: 1.5rem;
-    font-weight: 500;
-    color: @comp0;
-    padding-top: 2px;
-    padding-right: 6px;
+#custom-divider {
+    color: alpha(@plain, 0.7);
 }
 
 #custom-power {
     color: @normal-red;
     padding-right: 6px;
-}
-
-#custom-sleep {
-    color: @normal-green;
-    padding-right: 12px;
-}
-
-#custom-reboot {
-    color: @normal-yellow;
-    padding-right: 14px;
+    padding-left: 3px;
 }
