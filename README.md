@@ -29,6 +29,8 @@ ln -s "$PWD/.bash_profile" ~/
 ln -s "$PWD/hypr" ~/.config
 # Link system config
 ln -sf "$PWD/hypr/{hostname}.conf" "$PWD/hypr/system.conf"
+# Music notifications
+mkdir -p ~/.local/share/thumbnails
 
 # Create waybar symlink
 ln -s "$PWD/waybar" ~/.config
