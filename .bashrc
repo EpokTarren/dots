@@ -33,3 +33,5 @@ alias branch='b=$(git rev-parse --abbrev-ref HEAD 2> /dev/null); [ $? -eq 0 ] &&
 if [[ -f "~/.config/bemenu/opts.sh" ]]; then
     source ~/.config/bemenu/opts.sh
 fi
+
+export NEOVIDE_FORK=true
