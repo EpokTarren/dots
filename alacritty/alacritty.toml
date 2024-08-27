@@ -1,4 +1,4 @@
-import = ["/home/tarren/.config/alacritty/theme.toml", "/home/tarren/AppData/Roaming/alacritty/theme.yml"]
+import = ["~/.config/alacritty/theme.toml", "~/AppData/Roaming/alacritty/theme.toml"]
 live_config_reload = true
 
 [bell]

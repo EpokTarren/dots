@@ -16,7 +16,7 @@ fi
 echo "let g:theme_style = '$1'" > $dots/nvim/theme.vim
 
 ### Alacritty ###
-echo "import = [\"$local/themes/$version/alacritty/$normalized_.toml\"]" > $dots/alacritty/theme.yml
+echo "import = [\"$local/themes/$version/alacritty/$normalized_.toml\"]" > $dots/alacritty/theme.toml
 
 # Ignore linux only programs if running in WSL.
 if test -f "/proc/sys/fs/binfmt_misc/WSLInterop"; then
