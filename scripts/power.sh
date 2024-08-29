@@ -1,5 +1,5 @@
 #!/bin/sh
-command=$(echo -e "Lock\nLogout\nSleep\nRestart\nShutdown" | ~/.config/bemenu/bemenu.sh)
+command=$(echo -e "Lock\nLogout\nSleep\nRestart\nShutdown" | ~/.scripts/bemenu/bemenu.sh)
 
 case $command in
     "Lock")     hyprlock ;;

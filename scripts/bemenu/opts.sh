@@ -1,4 +1,4 @@
-source ~/.config/bemenu/theme.sh
+source ~/.scripts/bemenu/theme.sh
 
 export BEMENU_OPTS="-l 10
     --ignorecase

@@ -36,7 +36,7 @@
         "tooltip": true,
         "tooltip-format": "Power options.",
         // Sleep so bemenu does not pick up click on this.
-        "on-click": "sleep 0.4 && ~/.config/hypr/power.sh",
+        "on-click": "sleep 0.4 && ~/.scripts/power.sh",
     },
 
     "hyprland/workspaces": {

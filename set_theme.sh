@@ -54,6 +54,6 @@ cat dunstrc                        \
 pgrep dunst &> /dev/null && pkill dunst &> /dev/null && dunst &> /dev/null &
 
 ### Bemenu ###
-echo "bg0=\"#$bg0\""           >  bemenu/theme.sh
-echo "plain=\"#$plain\""       >> bemenu/theme.sh
-echo "primary0=\"#$primary0\"" >> bemenu/theme.sh
+echo "bg0=\"#$bg0\""           >  scripts/bemenu/theme.sh
+echo "plain=\"#$plain\""       >> scripts/bemenu/theme.sh
+echo "primary0=\"#$primary0\"" >> scripts/bemenu/theme.sh

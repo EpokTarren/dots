@@ -32,15 +32,15 @@ ln -sf "$PWD/hypr/{hostname}.conf" "$PWD/hypr/system.conf"
 # Music notifications
 mkdir -p ~/.local/share/thumbnails
 
+# Scripts
+ln -s "$PWD/scripts" ~/.scripts
+
 # Create waybar symlink
 ln -s "$PWD/waybar" ~/.config
 
 # Create dunst symlink
 mkdir -p ~/.config/dunst
 ln -s "$PWD/.theme.dunstrc" ~/.config/dunst/dunstrc
-
-# Create bemenu symlink
-ln -s "$PWD/bemenu" ~/.config
 ```
 
 ## Windows

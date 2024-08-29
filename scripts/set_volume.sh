@@ -3,7 +3,7 @@
 wpctl set-volume -l 1.5 @DEFAULT_AUDIO_SINK@ $1
 
 export use_volume="yes"
-~/.config/hypr/playerctl.sh metadata -f ""
+~/.scripts/playerctl.sh metadata -f ""
 if [[ $? == 0 ]]; then
     exit 0;
 fi
