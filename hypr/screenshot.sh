@@ -1,7 +1,15 @@
 #!/bin/sh
 
 filename() {
-    echo -n "$HOME/Screenshots/$(date +"%Y%m%dT%H%M%S$1".png)"
+    folder="$HOME/Screenshots/$(date +"%Y-%m")"
+    mkdir -p "$folder"
+
+    file="$folder/$1$(tr -dc a-z0-9 < /dev/urandom | head -c 6).png"
+    if [ -f "$file" ]; then
+        filename $1
+    else
+        echo -n "$file"
+    fi
 }
 
 screenshot() {
@@ -36,7 +44,7 @@ active_window_name() {
 }
 
 capture_active_window() {
-    screenshot "$(active_window_geometry)" "$(filename "_$(active_window_name)")"
+    screenshot "$(active_window_geometry)" "$(filename "$(active_window_name)_")"
 }
 
 case $1 in
