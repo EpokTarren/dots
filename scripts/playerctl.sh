@@ -43,7 +43,7 @@ if [[ "$icon" != "" ]]; then
     fi
 fi
 
-volume=$(wpctl get-volume @DEFAULT_AUDIO_SINK@ | sed 's/Volume: 0\?\(.*\)/\1%/' | sed s/\\.// | sed 's/ \[MUTED\]%/% (muted)/')
+volume=$(wpctl get-volume @DEFAULT_AUDIO_SINK@ | sed 's/Volume: 0\?\(.*\)/\1%/' | sed s/\\.// | sed s/^0// | sed 's/ \[MUTED\]%/% (muted)/')
 
 if [[ "$use_volume" == "yes" ]]; then
     body="$metadata

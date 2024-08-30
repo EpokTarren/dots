@@ -8,7 +8,7 @@ if [[ $? == 0 ]]; then
     exit 0;
 fi
 
-volume=$(wpctl get-volume @DEFAULT_AUDIO_SINK@ | sed 's/Volume: //' | sed s/\\.// | sed s/^0//)
+volume=$(wpctl get-volume @DEFAULT_AUDIO_SINK@ | sed 's/Volume: //' | sed s/0*\\.// | sed s/^0//)
 
 if [[ "$volume" == *"[MUTED]" ]]; then
     dunstify "Volume (muted)" -r 86 "$(echo $volume | sed 's/ .*//')%" --hints=int:value:"$volume%" -u low -t 2000
