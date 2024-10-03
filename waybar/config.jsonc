@@ -10,14 +10,11 @@
     "modules-left": ["hyprland/workspaces"],
     "modules-center": ["hyprland/window"],
     "modules-right": [
+        "tray",
         "network",
         "pulseaudio",
-        "backlight",
         "battery",
-        "power-profiles-daemon",
-        "tray",
         "clock",
-        "custom/divider",
         "custom/power",
     ],
 
@@ -52,7 +49,7 @@
             "8": "八",
             "9": "九",
             "10": "零",
-            "urgent": "",
+            "urgent": "!",
             "focused": "",
             "default": "",
         },
@@ -70,17 +67,6 @@
         "tooltip-format": "{:%Y-%m-%d}",
     },
 
-    "temperature": {
-        "critical-threshold": 65,
-        "format": "{temperatureC}°C",
-    },
-
-    "backlight": {
-        "format": "{icon}",
-        "format-icons": ["", "", "", "", "", "", "", "", ""],
-        "tooltip-format": "{percent}%",
-    },
-
     "battery": {
         "states": {
             "good": 65,
@@ -96,18 +82,6 @@
         "format-alt": "{capacity}% {time} {icon}",
         "format-icons": ["", "", "", "", ""],
         "tooltip-format": "{capacity}% | {time}",
-    },
-
-    "power-profiles-daemon": {
-        "format": "{icon}",
-        "tooltip-format": "Power profile: {profile}",
-        "tooltip": true,
-        "format-icons": {
-            "default": "",
-            "performance": "",
-            "balanced": "",
-            "power-saver": "",
-        },
     },
 
     "network": {
@@ -138,11 +112,5 @@
             "car": "",
             "default": ["", "", ""],
         },
-    },
-
-    "pulseaudio/slider": {
-        "min": 0,
-        "max": 100,
-        "orientation": "horizontal",
     },
 }

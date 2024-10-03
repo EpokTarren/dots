@@ -73,7 +73,7 @@ button:hover {
 }
 
 #workspaces button.urgent {
-    background-color: @dim-red;
+    background-color: @error;
 }
 
 #workspaces button.active {
@@ -118,67 +118,17 @@ button:hover {
     background-color: @bg2;
 }
 
-#power-profiles-daemon,
-#battery,
-#temperature,
-#backlight,
-#clock {
-    border-radius: 10px;
-}
-
 #pulseaudio {
-    color: @primary2;
-    padding-right: 6px;
+    padding-right: 10px;
 }
 
 #pulseaudio.muted {
-    color: alpha(@primary2, 0.4);
+    color: alpha(@plain, 0.4);
 }
 
-#pulseaudio-slider,
-#pulseaudio-slider * {
-    padding: 0;
-    margin: 0;
-}
-
-#pulseaudio-slider slider {
-    min-height: 0px;
-    min-width: 0px;
-    opacity: 0;
-    background-image: none;
-    border: none;
-    box-shadow: none;
-}
-
-#pulseaudio-slider trough {
-    min-height: 8px;
-    min-width: 32px;
-    border-radius: 12px;
-    background-color: alpha(@bg1, 0.5);
-    border: 1px solid @plain;
-}
-
-#pulseaudio-slider highlight {
-    border: none;
-    background-color: alpha(@primary1, 0.75);
-}
-
+#battery,
 #network {
-    color: @primary2;
-    padding-right: 8px;
-}
-
-#backlight {
-    padding-right: 4px;
-}
-
-#battery {
-    color: @bright-green;
-    padding: 0 10px 0 0;
-}
-
-#battery.good {
-    color: @plain;
+    padding-right: 10px;
 }
 
 #battery.warning:not(.charging) {
@@ -194,22 +144,6 @@ button:hover {
     color: @normal-green;
 }
 
-#power-profiles-daemon.power-saver {
-    color: @normal-green;
-}
-
-#power-profiles-daemon.balanced {
-    color: @normal-blue;
-}
-
-#power-profiles-daemon.performance {
-    color: @normal-yellow;
-}
-
-#power-profiles-daemon {
-    padding-right: 10px;
-}
-
 #clock {
     color: @comp0;
     font-weight: 500;
@@ -220,7 +154,7 @@ button:hover {
 }
 
 #custom-power {
-    color: @normal-red;
+    color: @comp0;
     padding-right: 6px;
     padding-left: 3px;
 }
