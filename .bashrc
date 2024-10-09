@@ -1,18 +1,31 @@
 # Util
-alias ls='exa --icons'
-alias la='exa --icons -a'
-alias ll='exa --icons -l'
-alias lla='exa --icons -la'
-alias cat='bat -p'
+if command -v exa &> /dev/null; then
+    alias ls='exa'
+    alias la='exa -a'
+    alias ll='exa --icons -l'
+    alias lla='exa --icons -la'
+else
+    alias la='ls -a'
+    alias ll='ls -l'
+    alias lla='ls -la'
+fi
+
+if command -v bat &> /dev/null; then
+    alias cat='bat -p'
+elif command -v batcat &> /dev/null; then
+    alias cat='batcat -p'
+fi
 
 # Git
-alias gap='git add -p'
-alias st='git status'
-alias cm='git commit'
-alias am='git commit --amend'
-alias amn='git commit --amend --no-edit'
-alias push='git push'
-alias diff='git diff'
+if command -v git &> /dev/null; then
+    alias gap='git add -p'
+    alias st='git status'
+    alias cm='git commit'
+    alias am='git commit --amend'
+    alias amn='git commit --amend --no-edit'
+    alias push='git push'
+    alias diff='git diff'
+fi
 
 # Prompt, show user and hostname when connected over SSH.
 if [ -n "$SSH_CLIENT" ] || [ -n "$SSH_TTY" ]; then
