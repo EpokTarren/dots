@@ -9,8 +9,9 @@ export BEMENU_OPTS="-l 10
     --fn \"FiraCode 14\"
     --margin 8
     --border 2
-    -P '      >'
+    -P '   >'
     -s
+    --border-radius 10
     --bdr \"$primary0\"
     --tf  \"$plain\"
     --sf  \"$primary0\"
