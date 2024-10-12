@@ -18,7 +18,7 @@ notification() {
 
 format="{{artist}}
 <i>{{album}}</i>
-<{{status}}>  {{duration(position)}} / {{duration(mpris:length)}}"
+<{{status}}> {{playerName}} {{duration(position)}} / {{duration(mpris:length)}}"
 title=$(playerctl metadata "$player" -f "{{default(title, playerName)}}")
 
 metadata=$(playerctl metadata "$player" -f "$format" | sed 's/<.><\/.>//' | sed 's/0:00 \/ //' | grep -v -e '^$' | sed 's/<Playing>//' | sed 's/<Paused>//')
