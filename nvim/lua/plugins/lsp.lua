@@ -27,6 +27,12 @@ function lsp_config()
 		ensure_installed = {
 			"rust_analyzer",
 			"tsserver",
+			"ltex",
+		},
+		settings = {
+			ltex = {
+				language = "en-GB",
+			},
 		},
 	})
 
