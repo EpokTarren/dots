@@ -20,7 +20,7 @@
 
     "hyprland/window": {
         "rewrite": {
-            "(.*) — Mozilla Firefox": "$1",
+            "(.*) — Librewolf": "$1",
             "GNU Image Manipulation Program": "GIMP",
             "": "「 空白 」",
         },
