@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/usr/bin/env bash
 
 export version=$(./version.sh)
 export dir=$(pwd)
@@ -43,7 +43,7 @@ fi
 echo Available themes
 PS3="Select a theme: "
 
-select theme in Rider "Good Job" Slime "\"Girl\"" Bloody "Arch Wizard" Imouto? Gyaru Commander
+select theme in Rider "Good Job" Slime "\"Girl\"" Bloody "Arch Wizard" Imouto? Gyaru Commander Encore
 do
     ./set_theme.sh "$theme"
     echo "Set theme: $theme"
