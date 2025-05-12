@@ -16,12 +16,15 @@ fi
 echo "let g:theme_style = '$1'" > $dots/nvim/theme.vim
 
 ### Alacritty ###
-echo "import = [\"$local/themes/$version/alacritty/$normalized_.toml\"]" > $dots/alacritty/theme.toml
+echo "import = [\"$local/themes/$version/alacritty/$normalized_.toml\"]" > $local/alacritty/theme.toml
 
 # Ignore linux only programs if running in WSL.
 if test -f "/proc/sys/fs/binfmt_misc/WSLInterop"; then
   exit 0
 fi
+
+### Ghostty ###
+echo "theme = $local/themes/$version/ghostty/$normalized" > $local/ghostty/theme
 
 ### Hypr ###
 ln -sf $local/themes/$version/hypr/terminal.conf $local/hypr/terminal.conf
