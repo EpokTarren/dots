@@ -34,6 +34,8 @@ mkdir -p ~/.local/share/thumbnails
 
 # Scripts
 ln -s "$PWD/scripts" ~/.scripts
+mkdir -p ~/.local/share/applications/
+ln -s "$PWD/scripts/feh.desktop" ~/.local/share/applications/
 
 # Create waybar symlink
 ln -s "$PWD/waybar" ~/.config
