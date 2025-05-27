@@ -32,7 +32,7 @@ vim.opt.clipboard = "unnamedplus"
 
 if vim.g.neovide then
 	vim.g.neovide_refresh_rate_idle = 5
-	vim.g.neovide_transparency = 0.8
+	vim.g.neovide_opacity = 0.8
 	vim.g.neovide_hide_mouse_when_typing = true
 end
 
