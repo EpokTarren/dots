@@ -4,7 +4,6 @@ config-file = ?theme
 
 background-opacity = 0.825
 
-gtk-adwaita = true
 gtk-tabs-location = hidden
 window-decoration = false
 
@@ -26,11 +25,8 @@ keybind = ctrl+alt+j=new_split:down
 keybind = ctrl+alt+k=new_split:up
 keybind = ctrl+alt+l=new_split:right
 
-keybind = alt+t=new_tab
 keybind = alt+w=close_surface
 keybind = alt+shift+r=reload_config
-keybind = alt+tab=next_tab
-keybind = alt+shift+tab=previous_tab
 
 keybind = ctrl+shift+c=copy_to_clipboard
 keybind = ctrl+shift+v=paste_from_clipboard
