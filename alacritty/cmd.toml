@@ -1,4 +1,4 @@
-import = ["~/AppData/Roaming/alacritty/base.toml"]
+general.import = ["~/AppData/Roaming/alacritty/base.toml"]
 
 [shell]
 program = "cmd"
