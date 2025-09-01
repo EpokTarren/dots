@@ -12,40 +12,8 @@ cd dots
 # Brings up a cli theme picker and sets themes to match
 ./setup.sh
 
-# Create .giconfig symlink
-ln -s "$PWD/.gitconfig" ~/.gitconfig
-
-# Create neovim symlink
-ln -s "$PWD/nvim" ~/.config/nvim
-
-# Create alacritty symlink
-ln -s "$PWD/alacritty" ~/.config/alacritty
-
-# Create ghostty symlink
-ln -s "$PWD/ghostty" ~/.config/
-
-# Create bash symlinks
-ln -s "$PWD/.bashrc" ~/
-ln -s "$PWD/.bash_profile" ~/
-
-# Create hyprland and echosystem symlinks
-ln -s "$PWD/hypr" ~/.config
-# Link system config
-ln -sf "$PWD/hypr/{hostname}.conf" "$PWD/hypr/system.conf"
-# Music notifications
-mkdir -p ~/.local/share/thumbnails
-
-# Scripts
-ln -s "$PWD/scripts" ~/.scripts
-mkdir -p ~/.local/share/applications/
-ln -s "$PWD/scripts/feh.desktop" ~/.local/share/applications/
-
-# Create waybar symlink
-ln -s "$PWD/waybar" ~/.config
-
-# Create dunst symlink
-mkdir -p ~/.config/dunst
-ln -s "$PWD/.theme.dunstrc" ~/.config/dunst/dunstrc
+# Create all symlinks
+./link.sh
 ```
 
 ## Windows
