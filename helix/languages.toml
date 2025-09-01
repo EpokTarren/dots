@@ -1,0 +1,35 @@
+[[language]]
+name = "rust"
+formatter = { command = "cargo fmt" }
+auto-format = true
+
+[[language]]
+name = "javascript"
+formatter = { command = 'npx', args = ["prettier", "--parser", "typescript"] }
+auto-format = true
+indent = { tab-width = 4, unit = "  " }
+
+[[language]]
+name = "typescript"
+formatter = { command = 'npx', args = ["prettier", "--parser", "typescript"] }
+auto-format = true
+indent = { tab-width = 4, unit = "  " }
+
+[language-server.ltex-ls-plus.config]
+ltex.language = "en-GB"
+
+[[language]]
+name = "markdown"
+formatter = { command = 'npx', args = ["prettier", "--parser", "markdown"] }
+auto-format = true
+language-servers = [ "marksman", "ltex-ls-plus" ]
+
+[[language]]
+name = "markdown"
+formatter = { command = 'npx', args = ["prettier", "--parser", "markdown"] }
+auto-format = true
+language-servers = [ "marksman", "ltex-ls-plus" ]
+
+[[language]]
+name = "latex"
+language-servers = [ "texlab", "ltex-ls-plus" ]

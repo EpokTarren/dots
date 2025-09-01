@@ -18,6 +18,11 @@ echo "let g:theme_style = '$1'" > $dots/nvim/theme.vim
 ### Alacritty ###
 echo "general.import = [\"$local/themes/$version/alacritty/$normalized_.toml\"]" > $dots/alacritty/theme.toml
 
+### Helix ###
+echo "inherits = \"$normalized\"
+
+\"ui.background\" = {}" > "$local/helix/themes/theme.toml"
+
 # Ignore linux only programs if running in WSL.
 if test -f "/proc/sys/fs/binfmt_misc/WSLInterop"; then
   exit 0
