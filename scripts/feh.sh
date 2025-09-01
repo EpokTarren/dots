@@ -3,27 +3,35 @@
 dimensions=$(identify -format "w=%[width]
 h=%[height]" "$1")
 
-geometry=$(echo "$dimensions
-max_w=1600
-max_h=900
-a=1
-b=1
+screen=$(hyprctl monitors "$(hyprctl activeworkspace -j | jq .monitorID)" -j | jq -r '"maxW=\(.[0].width); maxH=\(.[0].height)"')
 
-if (w > max_w) {
-    a = max_w
-    b = w
+geometry=$(node -e "$dimensions
+$screen
+targetW = maxW / 1.2
+targetH = maxH / 1.2
+maxW -= 48
+maxH -= 96
+targetArea = targetW * targetH;
+
+bestDistance = Infinity;
+
+function check(tempW, tempH) {
+    if (tempW > maxW || tempH > maxH) return;
+
+    tempArea = tempW * tempH;
+    distance = Math.abs(targetArea - tempArea);
+
+    if (distance < bestDistance) {
+        bestDistance = distance;
+        bestW = tempW;
+        bestH = tempH;
+    }
 }
 
-if (h*a/b > max_h) {
-    a = max_h
-    b = h
-}
+for (i = 1; i < 30; ++i) check(Math.round(w / i), Math.round(h / i));
+for (i = 2; i < 30; ++i) check(Math.round(w * i), Math.round(h * i));
 
-dw = w*a/b*b - w*a
-dh = h*a/b*b - h*a
-print((w*a)/b)
-print \"x\"
-print((h*a)/b)
-" | bc)
+console.log(bestW + 'x' + bestH);
+")
 
-feh --auto-zoom --scale-down -g "$geometry" $*
+hyprctl dispatch exec "[float; dimaround; center; rounding 0]" -- feh --auto-zoom --scale-down -g "$geometry" $* > /dev/null
