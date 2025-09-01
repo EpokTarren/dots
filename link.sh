@@ -1,3 +1,6 @@
+#!/usr/bin/env bash
+mkdir -p ~/.config
+
 # Create .giconfig symlink
 ln -s "$PWD/.gitconfig" ~/.gitconfig
 
