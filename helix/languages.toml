@@ -33,3 +33,8 @@ language-servers = [ "marksman", "ltex-ls-plus" ]
 [[language]]
 name = "latex"
 language-servers = [ "texlab", "ltex-ls-plus" ]
+
+[[language]]
+name = "git-commit"
+rulers = []
+soft-wrap = { wrap-at-text-width = true }

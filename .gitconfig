@@ -13,6 +13,6 @@
 [credential "helperselector"]
 	selected = manager-core
 [core]
-	editor = nvim
+	editor = hx
 [init]
 	defaultBranch = main
