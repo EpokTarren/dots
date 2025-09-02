@@ -42,3 +42,6 @@ ln -s "$PWD/.theme.dunstrc" ~/.config/dunst/dunstrc
 
 # Create helix symlink
 ln -s "$PWD/helix" ~/.config
+
+# Create quickshell symlink
+ln -s "$PWD/quickshell" ~/.config
