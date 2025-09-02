@@ -2,13 +2,13 @@
 
 symlink_as_png() {
     if [[ "${1: -4}" == ".png" ]] then
-        ln -sf "$(realpath $1)" "$2"
+        ln -sf "$(realpath "$1")" "$2"
     else
         if ! test -f "$1.png"; then
             magick convert "$1" "$1.png"
         fi
 
-        ln -sf "$(realpath $1.png)" "$2"
+        ln -sf "$(realpath "$1.png")" "$2"
     fi
 }
 
@@ -22,6 +22,6 @@ set_wp() {
 }
 
 wp () {
-    hyprctl hyprpaper preload "$(realpath $1)"
-    hyprctl hyprpaper wallpaper "eDP-1,$(realpath $1)"
+    hyprctl hyprpaper preload "$(realpath "$1")"
+    hyprctl hyprpaper wallpaper ",$(realpath "$1")"
 }
