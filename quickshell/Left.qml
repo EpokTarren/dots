@@ -63,7 +63,7 @@ RowLayout {
         color: Theme.plain
         text: ToplevelManager.activeToplevel?.title.replace(new RegExp("\\s+.\\s+" + ToplevelManager.activeToplevel.appId, "i"), '')
         visible: ToplevelManager.activeToplevel?.activated
-        width: bar.width - bar.width / 2
+        width: bar.width - bar.width / 3
 
         font.pointSize: 11
         font.family: "JetBrains Mono"

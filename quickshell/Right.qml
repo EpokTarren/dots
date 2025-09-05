@@ -19,7 +19,7 @@ RowLayout {
 
         Text {
             anchors.centerIn: parent
-            width: Math.min(implicitWidth, bar.width / 2)
+            width: Math.min(implicitWidth, bar.width / 3)
             elide: Text.ElideRight
 
             text: Media.text
