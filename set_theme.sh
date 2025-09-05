@@ -45,6 +45,7 @@ pgrep waybar &> /dev/null && pkill waybar &> /dev/null && waybar &> /dev/null &
 colours=$(cat "$local/waybar/theme.css")
 
 bg0=$(echo "$colours" | rg bg0 | sed "s/.*#\|;//g")
+bg2=$(echo "$colours" | rg bg2 | sed "s/.*#\|;//g")
 comp0=$(echo "$colours" | rg comp0 | sed "s/.*#\|;//g")
 plain=$(echo "$colours" | rg plain | sed "s/.*#\|;//g")
 primary0=$(echo "$colours" | rg primary0 | sed "s/.*#\|;//g")
@@ -76,6 +77,7 @@ pragma Singleton
 import Quickshell
 Singleton {
   readonly property string bg0: \"#$bg0\";
+  readonly property string bg2: \"#$bg2\";
   readonly property string plain: \"#$plain\";
   readonly property string comp0: \"#$comp0\";
   readonly property string primary0: \"#$primary0\";

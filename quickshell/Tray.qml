@@ -12,30 +12,66 @@ Rectangle {
     QsMenuOpener {
         id: menu
     }
+
     PopupWindow {
         anchor.window: bar
-        anchor.rect.x: bar.width - 100
-        anchor.rect.y: bar.height + 8
-        implicitWidth: 128
-        implicitHeight: childrenRect.height
+        anchor.rect.x: bar.width - width - 128
+        anchor.rect.y: bar.height
+        implicitWidth: 196
+        implicitHeight: menu.children.values.length * 24 + 16
         visible: !!menu.menu
-        color: Theme.bg0
+        color: "transparent"
+
+        Rectangle {
+            anchors.fill: parent
+            color: Theme.bg0
+            antialiasing: true
+            radius: 10
+        }
 
         ListView {
-            anchors.centerIn: parent
+            anchors.top: parent.top
+            anchors.left: parent.left
+            anchors.topMargin: 8
             implicitWidth: parent.width
-            implicitHeight: childrenRect.height
+            implicitHeight: 1000
 
             verticalLayoutDirection: ListView.TopToBottom
             orientation: ListView.Vertical
 
             model: menu.children.values
-            delegate: Text {
+            delegate: Rectangle {
                 required property var model
-                text: model.text
-                font.pointSize: 12
-                font.family: "JetBrains Mono"
-                color: Theme.plain
+                width: parent.width
+                height: 24
+                color: !model.isSeparator && mouse.containsMouse ? Theme.bg2 : "transparent"
+
+                Text {
+                    anchors.verticalCenter: parent.verticalCenter
+                    anchors.left: parent.left
+                    anchors.leftMargin: 8
+                    width: parent.width - 16
+                    text: model.text
+                    font.pointSize: 11
+                    font.family: "JetBrains Mono"
+                    elide: Text.ElideRight
+                    color: mouse.containsMouse ? Theme.comp0 : Theme.plain
+                }
+
+                MouseArea {
+                    id: mouse
+                    anchors.fill: parent
+
+                    enabled: !model.isSeparator
+                    hoverEnabled: true
+                    acceptedButtons: Qt.LeftButton
+                    cursorShape: model.isSeparator ? undefined : Qt.PointingHandCursor
+
+                    onClicked: event => {
+                        model.modelData.triggered();
+                        menu.menu = null;
+                    }
+                }
             }
         }
     }
@@ -44,6 +80,7 @@ Rectangle {
         anchors.centerIn: parent
         width: childrenRect.width
         height: 32
+        spacing: 8
         layoutDirection: Qt.LeftToRight
         orientation: ListView.Horizontal
 
@@ -53,7 +90,7 @@ Rectangle {
 
             anchors.verticalCenter: parent.verticalCenter
             source: model.icon
-            implicitSize: 24
+            implicitSize: 22
 
             MouseArea {
                 anchors.fill: parent
@@ -64,13 +101,14 @@ Rectangle {
                 cursorShape: Qt.PointingHandCursor
 
                 onClicked: event => {
-                    if (!model.hasMenu)
-                        return;
-                    else if (menu.menu != model.menu)
-                        menu.menu = model.menu;
-                    else
-                        menu.menu = null;
-                    console.log(model.hasMenu, model.menu, menu.menu);
+                    if (model.onlyHasMenu || (model.hasMenu && event.button == Qt.RightButton)) {
+                        if (menu.menu != model.modelData.menu)
+                            menu.menu = model.modelData.menu;
+                        else
+                            menu.menu = null;
+                    } else if (event.button == Qt.LeftButton) {
+                        model.modelData.activate();
+                    }
 
                     event.accepted = true;
                 }
