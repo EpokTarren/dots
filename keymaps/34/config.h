@@ -1,9 +1,0 @@
-#pragma once
-
-#define USB_POLLING_INTERVAL_MS 1
-#define QMK_KEYS_PER_SCAN 12
-#define FORCE_NKRO
-#define MOUSEKEY_INTERVAL 7
-#define MOUSEKEY_TIME_TO_MAX 80
-#define TAPPING_TERM 150
-#define TAPPING_TERM_PER_KEY
