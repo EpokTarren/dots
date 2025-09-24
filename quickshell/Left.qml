@@ -61,7 +61,7 @@ RowLayout {
 
     Text {
         color: Theme.plain
-        text: ToplevelManager.activeToplevel?.title.replace(new RegExp("\\s+.\\s+" + ToplevelManager.activeToplevel.appId, "i"), '')
+        text: ToplevelManager.activeToplevel?.title.replace(new RegExp("\\s+.\\s+" + ToplevelManager.activeToplevel.appId.replace(/-\w+?$/i, suffix => "(" + suffix + ")?"), "i"), '') || ""
         visible: ToplevelManager.activeToplevel?.activated
         width: bar.width - bar.width / 3
 
