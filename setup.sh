@@ -38,14 +38,19 @@ if ! test -f "/proc/sys/fs/binfmt_misc/WSLInterop"; then
     cd $dir
   fi
 
-  if [ ! -d "./themes/$version/gtk-css" ]; then
+  if [ ! -d "./themes/$version/helix" ]; then
     cd "./themes/$version"
 
-    curl -L https://github.com/EpokTarren/themes/releases/download/v$version/tarrens-themes-v$version-gtk-css.tar.gz -o gtk-css.tar.gz
-    tar -xf gtk-css.tar.gz
-    rm gtk-css.tar.gz
+    curl -L https://github.com/EpokTarren/themes/releases/download/v$version/tarrens-themes-v$version-helix.tar.gz -o helix.tar.gz
+    tar -xf helix.tar.gz
+    rm helix.tar.gz
 
     cd $dir
+  fi
+
+  if [ ! -d ~/.config/quickshell ]; then
+    git clone git@github.com:EpokTarren/themes.git ~/.config/quickshell
+    ln -s ~/.config/quickshell $dir
   fi
 fi
 

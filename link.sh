@@ -2,23 +2,23 @@
 mkdir -p ~/.config
 
 # Create .giconfig symlink
-ln -s "$PWD/.gitconfig" ~/.gitconfig
+[[ ! -f ~/.gitconfig ]] && ln -s "$PWD/.gitconfig" ~/.gitconfig
 
 # Create neovim symlink
-ln -s "$PWD/nvim" ~/.config/nvim
+[[ ! -d ~/.config/nvim ]] && ln -s "$PWD/nvim" ~/.config/nvim
 
 # Create alacritty symlink
-ln -s "$PWD/alacritty" ~/.config/alacritty
+[[ ! -d ~/.config/alacritty ]] && ln -s "$PWD/alacritty" ~/.config/alacritty
 
 # Create ghostty symlink
-ln -s "$PWD/ghostty" ~/.config/
+[[ ! -d ~/.config/ghostty ]] && ln -s "$PWD/ghostty" ~/.config/
 
 # Create bash symlinks
-ln -s "$PWD/.bashrc" ~/
-ln -s "$PWD/.bash_profile" ~/
+[[ ! -f ~/.bashrc ]] && ln -s "$PWD/.bashrc" ~/
+[[ ! -f ~/.bash_profile ]] && ln -s "$PWD/.bash_profile" ~/
 
 # Create hyprland and echosystem symlinks
-ln -s "$PWD/hypr" ~/.config
+[[ ! -d ~/.config/hypr ]] && ln -s "$PWD/hypr" ~/.config
 
 # Link system config
 if [ -f "$PWD/hypr/$HOSTNAME.conf" ]; then
@@ -29,19 +29,11 @@ fi
 mkdir -p ~/.local/share/thumbnails
 
 # Scripts
-ln -s "$PWD/scripts" ~/.scripts
+[[ ! -d ~/.scripts ]] && ln -s "$PWD/scripts" ~/.scripts
 mkdir -p ~/.local/share/applications/
-ln -s "$PWD/scripts/feh.desktop" ~/.local/share/applications/
-
-# Create waybar symlink
-ln -s "$PWD/waybar" ~/.config
-
-# Create dunst symlink
-mkdir -p ~/.config/dunst
-ln -s "$PWD/.theme.dunstrc" ~/.config/dunst/dunstrc
+[[ ! -f ~/.local/share/applications/feh.desktop ]] && ln -s "$PWD/scripts/feh.desktop" ~/.local/share/applications/
 
 # Create helix symlink
-ln -s "$PWD/helix" ~/.config
+[[ ! -d ~/.config/helix ]] && ln -s "$PWD/helix" ~/.config
 
-# Create quickshell symlink
-ln -s "$PWD/quickshell" ~/.config
+true
