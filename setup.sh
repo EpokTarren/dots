@@ -49,8 +49,9 @@ if ! test -f "/proc/sys/fs/binfmt_misc/WSLInterop"; then
   fi
 
   if [ ! -d ~/.config/quickshell ]; then
-    git clone git@github.com:EpokTarren/themes.git ~/.config/quickshell
+    git clone git@github.com:EpokTarren/shell.git ~/.config/quickshell
     ln -s ~/.config/quickshell $dir
+    ~/.config/quickshell/init.sh
   fi
 fi
 
