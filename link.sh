@@ -23,6 +23,8 @@ mkdir -p ~/.config
 # Link system config
 if [ -f "$PWD/hypr/$HOSTNAME.conf" ]; then
   ln -sf "$PWD/hypr/$HOSTNAME.conf" "$PWD/hypr/system.conf"
+else
+  touch "$PWD/hypr/system.conf"
 fi
 
 # Music notifications
