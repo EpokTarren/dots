@@ -13,7 +13,7 @@ filename() {
 }
 
 screenshot() {
-    [ "$2" != "" ] && exit 0
+    [ "$2" = "" ] && exit 0
     grim -l 9 "$1" "$2" - | tee "$3" | wl-copy -t image/png && echo "$3"
     notification "$3" &
 }
