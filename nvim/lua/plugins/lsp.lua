@@ -22,30 +22,6 @@ function mason()
 	require("mason").setup()
 end
 
-function lsp_config()
-	require("mason-lspconfig").setup({
-		ensure_installed = {
-			"rust_analyzer",
-			"tsserver",
-			"ltex",
-		},
-		settings = {
-			ltex = {
-				language = "en-GB",
-			},
-		},
-	})
-
-	local lspconfig = require("lspconfig")
-	local get_servers = require("mason-lspconfig").get_installed_servers
-
-	for _, server_name in ipairs(get_servers()) do
-		lspconfig[server_name].setup({
-			capabilities = lsp_capabilities,
-		})
-	end
-end
-
 function formatter()
 	local util = require("formatter.util")
 
@@ -83,7 +59,18 @@ return {
 	{
 		"williamboman/mason-lspconfig.nvim",
 		dependencies = { "neovim/nvim-lspconfig" },
-		config = lsp_config,
+		opts = {
+			ensure_installed = {
+				"rust_analyzer",
+				"ts_ls",
+				"ltex_plus",
+			},
+			settings = {
+				ltex = {
+					language = "en-GB",
+				},
+			},
+		},
 	},
 	{ "mhartington/formatter.nvim", config = formatter },
 }
