@@ -16,3 +16,5 @@
 	editor = hx
 [init]
 	defaultBranch = main
+[push]
+	followTags = true
