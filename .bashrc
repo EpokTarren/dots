@@ -16,6 +16,10 @@ elif command -v batcat &> /dev/null; then
     alias cat='batcat -p'
 fi
 
+if command -v hx &> /dev/null; then
+    export EDITOR=hx
+fi
+
 # Git
 if command -v git &> /dev/null; then
     alias gap='git add -p'
