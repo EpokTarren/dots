@@ -1,12 +1,19 @@
 #!/bin/sh
 
 dimensions=$(identify -format "w=%[width]
-h=%[height]" "$1")
+h=%[height]
+orientation='%[orientation]'" "$1")
 
 screen=$(hyprctl monitors "$(hyprctl activeworkspace -j | jq .monitorID)" -j | jq -r '"maxW=\(.[0].width); maxH=\(.[0].height)"')
 
 geometry=$(node -e "$dimensions
 $screen
+if (['LeftTop', 'RightTop', 'RightBottom', 'LeftBottom'].includes(orientation)) {
+    const tmp = w;
+    w = h;
+    h = tmp;
+}
+
 targetW = maxW / 1.2
 targetH = maxH / 1.2
 maxW -= 48
