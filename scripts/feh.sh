@@ -41,4 +41,4 @@ for (i = 2; i < 30; ++i) check(Math.round(w * i), Math.round(h * i));
 console.log(bestW + 'x' + bestH);
 ")
 
-hyprctl dispatch exec "[float; dimaround; center; rounding 0]" -- feh --auto-zoom --scale-down -g "$geometry" $* > /dev/null
+hyprctl dispatch exec "[float; dimaround; center; rounding 0; noborder]" -- feh --auto-zoom --scale-down -g "$geometry" $* > /dev/null
