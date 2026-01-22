@@ -6,7 +6,7 @@ command=$(echo -e "Lock\nLogout\nSleep\nRestart\nShutdown" | bemenu -P '     >' 
 kill_browser() { hyprctl dispatch sendshortcut "ctrl,q,class:librewolf"; }
 
 case $command in
-    "Lock")     hyprlock -q ;;
+    "Lock")     sleep 1 && hyprctl dispatch dpms off && hyprlock -q ;;
     "Logout")   hyprshutdown -t "Logging out..." ;;
     "Sleep")    hyprlock -q & systemctl suspend ;;
     "Restart")  kill_browser && hyprshutdown --dry-run -t 'Restarting...' && reboot ;;
