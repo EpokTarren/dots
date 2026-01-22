@@ -2,10 +2,13 @@
 source ~/.scripts/bemenu/opts.sh
 command=$(echo -e "Lock\nLogout\nSleep\nRestart\nShutdown" | bemenu -P '     >' -p power)
 
+# Kill browser using shortcut to allow consistent tab restore
+kill_browser() { hyprctl dispatch sendshortcut "ctrl,q,class:librewolf"; }
+
 case $command in
     "Lock")     hyprlock -q ;;
-    "Logout")   hyprctl dispatch exit ;;
+    "Logout")   hyprshutdown -t "Logging out..." ;;
     "Sleep")    hyprlock -q & systemctl suspend ;;
-    "Restart")  reboot ;;
-    "Shutdown") shutdown now ;;
+    "Restart")  kill_browser && hyprshutdown --dry-run -t 'Restarting...' && reboot ;;
+    "Shutdown") kill_browser && hyprshutdown --dry-run -t 'Shutting down...' && shutdown now ;;
 esac
