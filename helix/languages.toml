@@ -15,14 +15,25 @@ formatter = { command = 'npx', args = ["prettier", "--parser", "typescript"] }
 auto-format = true
 indent = { tab-width = 4, unit = "  " }
 
-[language-server.ltex-ls-plus.config]
-ltex.language = "en-GB"
+[[language]]
+name = "html"
+formatter = { command = 'npx', args = ["prettier", "--parser", "html"] }
+auto-format = true
+indent = { tab-width = 4, unit = "  " }
 
 [[language]]
-name = "markdown"
-formatter = { command = 'npx', args = ["prettier", "--parser", "markdown"] }
+name = "css"
+formatter = { command = 'npx', args = ["prettier", "--parser", "css"] }
 auto-format = true
-language-servers = [ "marksman", "ltex-ls-plus" ]
+indent = { tab-width = 4, unit = "  " }
+
+[[language]]
+name = "yaml"
+formatter = { command = 'npx', args = ["prettier", "--parser", "yaml"] }
+auto-format = false
+
+[language-server.ltex-ls-plus.config]
+ltex.language = "en-GB"
 
 [[language]]
 name = "markdown"
