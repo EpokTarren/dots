@@ -5,31 +5,31 @@ auto-format = true
 
 [[language]]
 name = "javascript"
-formatter = { command = 'npx', args = ["prettier", "--parser", "typescript"] }
+formatter = { command = 'prettier', args = ["--parser", "typescript"] }
 auto-format = true
 indent = { tab-width = 4, unit = "  " }
 
 [[language]]
 name = "typescript"
-formatter = { command = 'npx', args = ["prettier", "--parser", "typescript"] }
+formatter = { command = 'prettier', args = ["--parser", "typescript"] }
 auto-format = true
 indent = { tab-width = 4, unit = "  " }
 
 [[language]]
 name = "html"
-formatter = { command = 'npx', args = ["prettier", "--parser", "html"] }
+formatter = { command = 'prettier', args = ["--parser", "html"] }
 auto-format = true
 indent = { tab-width = 4, unit = "  " }
 
 [[language]]
 name = "css"
-formatter = { command = 'npx', args = ["prettier", "--parser", "css"] }
+formatter = { command = 'prettier', args = ["--parser", "css"] }
 auto-format = true
 indent = { tab-width = 4, unit = "  " }
 
 [[language]]
 name = "yaml"
-formatter = { command = 'npx', args = ["prettier", "--parser", "yaml"] }
+formatter = { command = 'prettier', args = ["--parser", "yaml"] }
 auto-format = false
 
 [language-server.ltex-ls-plus.config]
@@ -37,7 +37,7 @@ ltex.language = "en-GB"
 
 [[language]]
 name = "markdown"
-formatter = { command = 'npx', args = ["prettier", "--parser", "markdown"] }
+formatter = { command = 'prettier', args = ["--parser", "markdown"] }
 auto-format = true
 language-servers = [ "marksman", "ltex-ls-plus" ]
 
@@ -49,3 +49,9 @@ language-servers = [ "texlab", "ltex-ls-plus" ]
 name = "git-commit"
 rulers = []
 soft-wrap = { wrap-at-text-width = true }
+language-servers = [ "marksman", "ltex-ls-plus" ]
+
+[[language]]
+name = "nix"
+formatter = { command = 'nixfmt' }
+auto-format = true
