@@ -5,20 +5,20 @@ mkdir -p ~/.config
 [[ ! -f ~/.gitconfig ]] && ln -s "$PWD/.gitconfig" ~/.gitconfig
 
 # Create neovim symlink
-[[ ! -d ~/.config/nvim ]] && ln -s "$PWD/nvim" ~/.config/nvim
+command -v nvim > /dev/null && [[ ! -d ~/.config/nvim ]] && ln -s "$PWD/nvim" ~/.config/nvim
 
 # Create alacritty symlink
-[[ ! -d ~/.config/alacritty ]] && ln -s "$PWD/alacritty" ~/.config/alacritty
+command -v alacritty > /dev/null && [[ ! -d ~/.config/alacritty ]] && ln -s "$PWD/alacritty" ~/.config/alacritty
 
 # Create ghostty symlink
-[[ ! -d ~/.config/ghostty ]] && ln -s "$PWD/ghostty" ~/.config/
+command -v ghostty > /dev/null && [[ ! -d ~/.config/ghostty ]] && ln -s "$PWD/ghostty" ~/.config/
 
 # Create bash symlinks
 [[ ! -f ~/.bashrc ]] && ln -s "$PWD/.bashrc" ~/
 [[ ! -f ~/.bash_profile ]] && ln -s "$PWD/.bash_profile" ~/
 
 # Create hyprland and echosystem symlinks
-[[ ! -d ~/.config/hypr ]] && ln -s "$PWD/hypr" ~/.config
+command -v Hyprland > /dev/null && [[ ! -d ~/.config/hypr ]] && ln -s "$PWD/hypr" ~/.config
 
 # Link system config
 if [ -f "$PWD/hypr/$HOSTNAME.conf" ]; then
@@ -34,6 +34,6 @@ mkdir -p ~/.local/share/thumbnails
 [[ ! -d ~/.scripts ]] && ln -s "$PWD/scripts" ~/.scripts
 
 # Create helix symlink
-[[ ! -d ~/.config/helix ]] && ln -s "$PWD/helix" ~/.config
+command -v hx > /dev/null && [[ ! -d ~/.config/helix ]] && ln -s "$PWD/helix" ~/.config
 
 true
