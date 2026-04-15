@@ -20,7 +20,7 @@ screenshot() {
 
 notification() {
     test ~/Screenshots/screenshot.wav && mpv ~/Screenshots/screenshot.wav &> /dev/null
-    case "$(notify-send -I "$1" -A "open,Open" -A "delete,Delete" "Screenshot" "$(basename $1)" -u low)" in
+    case "$(notify-send --icon "$1" --action "open=Open" --action "delete=Delete" --app-name "Screenshot" "$(basename $1)" -u low)" in
         "open")   xdg-open "$1" ;;
         "delete") rm       "$1" ;;
     esac
