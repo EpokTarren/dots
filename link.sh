@@ -32,8 +32,6 @@ mkdir -p ~/.local/share/thumbnails
 
 # Scripts
 [[ ! -d ~/.scripts ]] && ln -s "$PWD/scripts" ~/.scripts
-mkdir -p ~/.local/share/applications/
-[[ ! -f ~/.local/share/applications/feh.desktop ]] && ln -s "$PWD/scripts/feh.desktop" ~/.local/share/applications/
 
 # Create helix symlink
 [[ ! -d ~/.config/helix ]] && ln -s "$PWD/helix" ~/.config
