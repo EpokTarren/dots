@@ -1,6 +1,5 @@
 # Util
 if command -v exa &> /dev/null; then
-    alias ls='exa'
     alias la='exa -a'
     alias ll='exa --icons -l'
     alias lla='exa --icons -la'
