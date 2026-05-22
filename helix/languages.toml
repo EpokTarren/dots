@@ -55,3 +55,13 @@ language-servers = [ "marksman", "ltex-ls-plus" ]
 name = "nix"
 formatter = { command = 'nixfmt' }
 auto-format = true
+
+[language-server.stylua]
+command = "stylua"
+args = [ "--lsp" ]
+config = { provideFormatter = true }
+
+[[language]]
+name = "lua"
+language-servers = [ { name = "stylua", only-features = [ "format" ] }, "lua-language-server" ]
+auto-format = true
