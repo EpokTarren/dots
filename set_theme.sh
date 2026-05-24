@@ -34,6 +34,8 @@ echo "theme = $local/themes/$version/ghostty/$normalized" > $local/ghostty/theme
 ### Hypr ###
 ln -sf $local/themes/$version/hypr/terminal.conf $local/hypr/terminal.conf
 ln -sf $local/themes/$version/hypr/$normalized_.conf $local/hypr/theme.conf
+ln -sf $local/themes/$version/lua/colours.lua $local/hypr/colours.lua
+echo "return require(\"colours\").themes.$normalized_" > $local/hypr/theme.lua
 pgrep Hyprland &> /dev/null && hyprctl reload &> /dev/null
 
 ### Parse colours ###

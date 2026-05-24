@@ -57,9 +57,9 @@ capture_active_window() {
 
 capture_active_window_region() {
     window="$(active_window)"
-    hyprctl dispatch setprop "address:$window" norounding on
+    hyprctl dispatch "hl.dsp.window.set_prop({ prop=\"no_rounding\", value = \"0\", window = \"address:$window\" })"
     screenshot -g "$(active_window_geometry)" "$(filename "$(active_window_name)_")"
-    hyprctl dispatch setprop "address:$window" norounding off
+    hyprctl dispatch "hl.dsp.window.set_prop({ prop=\"no_rounding\", value = \"10\", window = \"address:$window\" })"
 }
 
 case $1 in

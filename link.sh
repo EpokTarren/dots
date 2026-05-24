@@ -20,12 +20,8 @@ command -v ghostty > /dev/null && [[ ! -d ~/.config/ghostty ]] && ln -s "$PWD/gh
 # Create hyprland and echosystem symlinks
 command -v Hyprland > /dev/null && [[ ! -d ~/.config/hypr ]] && ln -s "$PWD/hypr" ~/.config
 
-# Link system config
-if [ -f "$PWD/hypr/$HOSTNAME.conf" ]; then
-  ln -sf "$PWD/hypr/$HOSTNAME.conf" "$PWD/hypr/system.conf"
-else
-  touch "$PWD/hypr/system.conf"
-fi
+# Create uwsm symlink
+[[ ! -d ~/.config/uwsm ]] && ln -s "$PWD/uwsm" ~/.config/uwsm
 
 # Music notifications
 mkdir -p ~/.local/share/thumbnails

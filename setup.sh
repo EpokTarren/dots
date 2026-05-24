@@ -28,6 +28,16 @@ if ! test -f "/proc/sys/fs/binfmt_misc/WSLInterop"; then
     cd $dir
   fi
 
+  if [ ! -d "./themes/$version/lua" ]; then
+    cd "./themes/$version"
+
+    curl -L https://github.com/EpokTarren/themes/releases/download/v$version/tarrens-themes-v$version-lua.tar.gz -o lua.tar.gz
+    tar -xf lua.tar.gz
+    rm lua.tar.gz
+
+    cd $dir
+  fi
+
   if [ ! -d "./themes/$version/ghostty" ]; then
     cd "./themes/$version"
 
