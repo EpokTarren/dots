@@ -97,7 +97,12 @@ hl.bind(
 )
 
 -- Power
-hl.bind(mainMod .. " + CTRL + SHIFT + L", hl.dsp.exec_cmd("hyprlock"), { description = "lock" })
+hl.bind(mainMod .. " + CTRL + SHIFT + L", function()
+	hl.dispatch(hl.dsp.exec_cmd("hyprlock"))
+	hl.timer(function()
+		hl.dispatch(hl.dsp.dpms({ action = "disable" }))
+	end, { timeout = 2000, type = "oneshot" })
+end, { description = "lock" })
 hl.bind(mainMod .. " + CTRL + SHIFT + Q", hl.dsp.exec_cmd("~/.scripts/power.sh"), { description = "power options" })
 
 local function bind_vim(f)
