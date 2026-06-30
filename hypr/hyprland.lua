@@ -158,7 +158,7 @@ hl.bind(mainMod .. " + page_up", hl.dsp.focus({ workspace = "e-1" }))
 hl.bind(mainMod .. " + page_down", hl.dsp.focus({ workspace = "++1" }))
 
 hl.bind(mainMod .. "+ mouse:272", hl.dsp.window.drag(), { mouse = true })
-hl.bind(mainMod .. "+ mouse:272", hl.dsp.window.resize(), { mouse = true })
+hl.bind(mainMod .. "+ mouse:273", hl.dsp.window.resize(), { mouse = true })
 
 -- Audio controls
 hl.bind("XF86AudioRaiseVolume", hl.dsp.exec_cmd("~/.scripts/set_volume.sh 5%+"), { description = "volume up" })
