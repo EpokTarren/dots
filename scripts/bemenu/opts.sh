@@ -1,6 +1,7 @@
 source ~/.scripts/bemenu/theme.sh
 
 export BEMENU_OPTS="-l 10
+    --single-instance
     --ignorecase
     --center
     -W 0.4
