@@ -3,8 +3,6 @@ local theme = require("theme")
 hl.on("hyprland.start", function()
 	hl.exec_cmd("dconf write /org/gnome/desktop/interface/cursor-theme \"'$XCURSOR_THEME'\"")
 	hl.exec_cmd("dconf write /org/gnome/desktop/interface/cursor-size $XCURSOR_SIZE")
-	hl.exec_cmd("hyprpaper")
-	hl.exec_cmd("quickshell")
 end)
 
 hl.config({
