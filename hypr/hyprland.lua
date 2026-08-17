@@ -68,13 +68,26 @@ local mainMod = "SUPER"
 hl.bind(mainMod .. " + Q", hl.dsp.exec_cmd("alacritty"))
 
 -- Launch
-hl.bind(mainMod .. " + A", hl.dsp.exec_cmd("uwsm-app -- alacritty"), { description = "terminal" })
-hl.bind(mainMod .. " + F", hl.dsp.exec_cmd("uwsm-app -- librewolf"), { description = "browser" })
-hl.bind(mainMod .. " + R", hl.dsp.exec_cmd("~/.scripts/bemenu/run.sh"), { description = "run prompt" })
-hl.bind(mainMod .. " + SHIFT + R", hl.dsp.exec_cmd("~/.scripts/bemenu/float.sh"), { description = "run floating" })
+hl.bind(mainMod .. " + A", hl.dsp.exec_cmd("uwsm-app Alacritty.desktop"), { description = "terminal" })
+hl.bind(mainMod .. " + F", hl.dsp.exec_cmd("uwsm-app librewolf.desktop:new-window"), { description = "browser" })
+hl.bind(
+	mainMod .. " + R",
+	hl.dsp.exec_cmd('rofi -show drun -run-command "$XDG_CONFIG_HOME/hypr/run.sh {cmd}"'),
+	{ description = "run prompt" }
+)
+hl.bind(
+	mainMod .. " + SHIFT + R",
+	hl.dsp.exec_cmd('rofi -show drun -run-command "$XDG_CONFIG_HOME/hypr/float.sh {cmd}"'),
+	{ description = "run prompt" }
+)
+hl.bind(
+	mainMod .. " + TAB",
+	hl.dsp.exec_cmd("rofi -show window -window-format '{c}: {t}'"),
+	{ description = "run prompt" }
+)
 hl.bind(
 	mainMod .. " + P",
-	hl.dsp.exec_cmd("uwsm-app -- librewolf --private-window"),
+	hl.dsp.exec_cmd("uwsm-app librewolf.desktop:new-private-window"),
 	{ description = "private browser" }
 )
 hl.bind(

@@ -1,0 +1,33 @@
+configuration {
+    modes: [drun, window];
+}
+
+@theme "theme"
+
+* {
+    font: "JetBrains Mono 12";
+}
+
+window {
+	border:        1px solid;
+	border-color:  @lightfg;
+	border-radius: 10px;
+}
+
+inputbar {
+    padding: 4px 8px;
+}
+
+
+element {
+    padding: 4px 8px;
+    spacing: 0;
+}
+
+element selected.active {
+	text-color: @active-foreground;
+}
+
+listview {
+  lines: 10;
+}

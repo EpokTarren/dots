@@ -50,10 +50,9 @@ primary1=$(echo "$colours" | rg Primary1 | sed "s/.* = \(.*\)/\1/g")
 primary2=$(echo "$colours" | rg Primary2 | sed "s/.* = \(.*\)/\1/g")
 primary3=$(echo "$colours" | rg Primary3 | sed "s/.* = \(.*\)/\1/g")
 
-### Bemenu ###
-echo "bg0=\"#$bg0\""           >  scripts/bemenu/theme.sh
-echo "plain=\"#$plain\""       >> scripts/bemenu/theme.sh
-echo "primary0=\"#$primary0\"" >> scripts/bemenu/theme.sh
+### Rofi ###
+ln -sf "$local/themes/$version/rofi/$normalized.rasi" "$local/rofi/theme.rasi"
+ln -sf "$local/themes/$version/rofi" "$local/rofi/themes"
 
 ### Quickshell ###
 

@@ -65,3 +65,8 @@ config = { provideFormatter = true }
 name = "lua"
 language-servers = [ { name = "stylua", only-features = [ "format" ] }, "lua-language-server" ]
 auto-format = true
+
+[[language]]
+name = "css"
+file-types = ["rasi"]
+auto-format = false

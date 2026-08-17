@@ -32,4 +32,7 @@ mkdir -p ~/.local/share/thumbnails
 # Create helix symlink
 command -v hx > /dev/null && [[ ! -d ~/.config/helix ]] && ln -s "$PWD/helix" ~/.config
 
+# Create rofi symlink
+command -v rofi > /dev/null && [[ ! -d ~/.config/rofi ]] && ln -s "$PWD/rofi" ~/.config
+
 true

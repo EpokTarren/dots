@@ -58,6 +58,16 @@ if ! test -f "/proc/sys/fs/binfmt_misc/WSLInterop"; then
     cd $dir
   fi
 
+  if [ ! -d "./themes/$version/rofi" ]; then
+    cd "./themes/$version"
+
+    curl -L https://github.com/EpokTarren/themes/releases/download/v$version/tarrens-themes-v$version-rofi.tar.gz -o rofi.tar.gz
+    tar -xf rofi.tar.gz
+    rm rofi.tar.gz
+
+    cd $dir
+  fi
+
   if [ ! -d ~/.config/quickshell ]; then
     git clone git@github.com:EpokTarren/shell.git ~/.config/quickshell
     ln -s ~/.config/quickshell $dir

@@ -1,6 +1,6 @@
 #!/bin/sh
-source ~/.scripts/bemenu/opts.sh
-command=$(echo -e "Idle\nLock\nLogout\nSleep\nRestart\nShutdown" | bemenu -P '     >' -p power)
+
+command=$(echo -e "Idle,Lock,Logout,Sleep,Restart,Shutdown" | rofi -dmenu -i -l 6 -sep ',' -p power)
 
 # Kill browser using shortcut to allow consistent tab restore
 kill_browser() { hyprctl dispatch 'hl.dsp.send_shortcut({ mods = "CTRL", key = "Q", window = "class:^librewolf$" })'; }
