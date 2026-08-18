@@ -245,26 +245,27 @@ if hostname == "hitori" then
 	})
 
 	local hdmi_disabled = nil
-	local function toggle_external()
-		if hdmi_disabled == nil then
-			hdmi_disabled = hl.get_monitor("DP-1") ~= nil
-		end
-
+	local function set_external(disabled)
+		hdmi_disabled = disabled
 		hl.monitor({
 			output = "HDMI-A-1",
 			mode = "preferred",
 			position = "auto-right",
 			scale = 2,
 			bitdepth = 10,
-			disabled = hdmi_disabled,
+			disabled = disabled,
 		})
-
-		hdmi_disabled = not hdmi_disabled
 	end
 
-	hl.on("hyprland.start", function()
-		hl.timer(toggle_external, { timeout = 1000, type = "oneshot" }):set_enabled(true)
-	end)
+	local function toggle_external()
+		set_external(not hdmi_disabled)
+	end
+
+	set_external(true)
+	hl.timer(function()
+		set_external(hl.get_monitor("DP-1") ~= nil)
+	end, { timeout = 500, type = "oneshot" }):set_enabled(true)
+
 	hl.bind(mainMod .. " + CTRL + P", toggle_external, { description = "reload monitor layout" })
 elseif hostname == "milize" then
 	hl.monitor({
