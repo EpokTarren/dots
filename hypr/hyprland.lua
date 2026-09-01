@@ -213,7 +213,10 @@ hl.bind(
 -- Notification
 hl.bind(mainMod .. " + W", hl.dsp.exec_cmd("qs ipc call notifications dismissTop"))
 hl.bind(mainMod .. " + SHIFT+ W", hl.dsp.exec_cmd("qs ipc call notifications dismissAll"))
+hl.bind(mainMod .. " + CTRL + W", hl.dsp.exec_cmd("qs ipc call notifications hide"))
+hl.bind(mainMod .. " + CTRL + SHIFT+ W", hl.dsp.exec_cmd("qs ipc call notifications hideAll"))
 hl.bind(mainMod .. " + O", hl.dsp.exec_cmd("qs ipc call notifications action"))
+hl.bind(mainMod .. " + SHIFT + O", hl.dsp.exec_cmd("qs ipc call notifications toggleAll"))
 
 hl.window_rule({ float = true, match = { class = "xdg-desktop-portal-gtk" } })
 hl.window_rule({ float = true, match = { title = "Select what to share" } })
