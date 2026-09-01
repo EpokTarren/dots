@@ -64,57 +64,42 @@ hl.config({
 	},
 })
 
-local mainMod = "SUPER"
-hl.bind(mainMod .. " + Q", hl.dsp.exec_cmd("alacritty"))
-
 -- Launch
-hl.bind(mainMod .. " + A", hl.dsp.exec_cmd("uwsm-app Alacritty.desktop"), { description = "terminal" })
-hl.bind(mainMod .. " + F", hl.dsp.exec_cmd("uwsm-app librewolf.desktop:new-window"), { description = "browser" })
+hl.bind("SUPER + A", hl.dsp.exec_cmd("uwsm-app Alacritty.desktop"), { description = "terminal" })
+hl.bind("SUPER + F", hl.dsp.exec_cmd("uwsm-app librewolf.desktop:new-window"), { description = "browser" })
 hl.bind(
-	mainMod .. " + R",
+	"SUPER + R",
 	hl.dsp.exec_cmd('rofi -show drun -run-command "$XDG_CONFIG_HOME/hypr/run.sh {cmd}"'),
 	{ description = "run prompt" }
 )
 hl.bind(
-	mainMod .. " + SHIFT + R",
+	"SUPER + SHIFT + R",
 	hl.dsp.exec_cmd('rofi -show drun -run-command "$XDG_CONFIG_HOME/hypr/float.sh {cmd}"'),
 	{ description = "run prompt" }
 )
+hl.bind("SUPER + TAB", hl.dsp.exec_cmd("rofi -show window -window-format '{c}: {t}'"), { description = "run prompt" })
 hl.bind(
-	mainMod .. " + TAB",
-	hl.dsp.exec_cmd("rofi -show window -window-format '{c}: {t}'"),
-	{ description = "run prompt" }
-)
-hl.bind(
-	mainMod .. " + P",
+	"SUPER + P",
 	hl.dsp.exec_cmd("uwsm-app librewolf.desktop:new-private-window"),
 	{ description = "private browser" }
 )
-hl.bind(
-	mainMod .. " + SHIFT + C",
-	hl.dsp.exec_cmd("uwsm-app -- hyprpicker --autocopy"),
-	{ descriptions = "colour picker" }
-)
+hl.bind("SUPER + SHIFT + C", hl.dsp.exec_cmd("uwsm-app -- hyprpicker --autocopy"), { descriptions = "colour picker" })
 
 -- Window
-hl.unbind(mainMod .. " + Q")
-hl.bind(mainMod .. " + Q", hl.dsp.window.close(), { description = "close window" })
-hl.bind(mainMod .. " + SHIFT + Q", hl.dsp.window.kill(), { description = "kill window" })
-hl.bind(mainMod .. " + V", hl.dsp.window.float({ action = "toggle" }), { description = "float window" })
-hl.bind(
-	mainMod .. " + SHIFT + F",
-	hl.dsp.window.fullscreen({ action = "toggle" }),
-	{ description = "fullscreen window" }
-)
+hl.unbind("SUPER + Q")
+hl.bind("SUPER + Q", hl.dsp.window.close(), { description = "close window" })
+hl.bind("SUPER + SHIFT + Q", hl.dsp.window.kill(), { description = "kill window" })
+hl.bind("SUPER + V", hl.dsp.window.float({ action = "toggle" }), { description = "float window" })
+hl.bind("SUPER + SHIFT + F", hl.dsp.window.fullscreen({ action = "toggle" }), { description = "fullscreen window" })
 
 -- Power
-hl.bind(mainMod .. " + CTRL + SHIFT + L", function()
+hl.bind("SUPER + CTRL + SHIFT + L", function()
 	hl.dispatch(hl.dsp.exec_cmd("hyprlock"))
 	hl.timer(function()
 		hl.dispatch(hl.dsp.dpms({ action = "disable" }))
 	end, { timeout = 2000, type = "oneshot" })
 end, { description = "lock" })
-hl.bind(mainMod .. " + CTRL + SHIFT + Q", hl.dsp.exec_cmd("~/.scripts/power.sh"), { description = "power options" })
+hl.bind("SUPER + CTRL + SHIFT + Q", hl.dsp.exec_cmd("~/.scripts/power.sh"), { description = "power options" })
 
 local function bind_vim(f)
 	for key, direction in pairs({ H = "l", J = "d", K = "u", L = "r" }) do
@@ -123,18 +108,18 @@ local function bind_vim(f)
 end
 
 bind_vim(function(key, direction)
-	hl.bind(mainMod .. " + " .. key, hl.dsp.focus({ direction = direction }))
+	hl.bind("SUPER + " .. key, hl.dsp.focus({ direction = direction }))
 end)
 
 bind_vim(function(key, direction)
-	hl.bind(mainMod .. " + SHIFT + " .. key, hl.dsp.window.move({ direction = direction }))
+	hl.bind("SUPER + SHIFT + " .. key, hl.dsp.window.move({ direction = direction }))
 end)
 
-hl.bind(mainMod .. " + CTRL + H", hl.dsp.layout("swapcol l"))
-hl.bind(mainMod .. " + CTRL + L", hl.dsp.layout("swapcol r"))
-hl.bind(mainMod .. " + CTRL + K", hl.dsp.layout("colresize -conf"))
-hl.bind(mainMod .. " + CTRL + J", hl.dsp.layout("colresize +conf"))
-hl.bind(mainMod .. " + CTRL + N", hl.dsp.layout("promote"))
+hl.bind("SUPER + CTRL + H", hl.dsp.layout("swapcol l"))
+hl.bind("SUPER + CTRL + L", hl.dsp.layout("swapcol r"))
+hl.bind("SUPER + CTRL + K", hl.dsp.layout("colresize -conf"))
+hl.bind("SUPER + CTRL + J", hl.dsp.layout("colresize +conf"))
+hl.bind("SUPER + CTRL + N", hl.dsp.layout("promote"))
 
 local function bind_workspaces(f)
 	for i = 1, 10 do
@@ -146,7 +131,7 @@ local function bind_workspaces(f)
 end
 
 bind_workspaces(function(key, workspace)
-	hl.bind(mainMod .. " + " .. key, hl.dsp.focus({ workspace = workspace }))
+	hl.bind("SUPER + " .. key, hl.dsp.focus({ workspace = workspace }))
 end)
 
 hl.gesture({
@@ -156,25 +141,25 @@ hl.gesture({
 })
 
 bind_workspaces(function(key, workspace)
-	hl.bind(mainMod .. " + SHIFT + " .. key, hl.dsp.window.move({ workspace = workspace }))
+	hl.bind("SUPER + SHIFT + " .. key, hl.dsp.window.move({ workspace = workspace }))
 end)
 
 -- Special workspace
-hl.bind(mainMod .. " + S", hl.dsp.workspace.toggle_special("magic"), { description = "toggle special" })
+hl.bind("SUPER + S", hl.dsp.workspace.toggle_special("magic"), { description = "toggle special" })
 hl.bind(
-	mainMod .. " + SHIFT + S",
+	"SUPER + SHIFT + S",
 	hl.dsp.window.move({ workspace = "special:magic" }),
 	{ description = "move window to special" }
 )
 
--- Scroll through existing workspaces with mainMod + scroll
-hl.bind(mainMod .. " + mouse_down", hl.dsp.focus({ workspace = "e-1" }))
-hl.bind(mainMod .. " + mouse_up", hl.dsp.focus({ workspace = "++1" }))
-hl.bind(mainMod .. " + page_up", hl.dsp.focus({ workspace = "e-1" }))
-hl.bind(mainMod .. " + page_down", hl.dsp.focus({ workspace = "++1" }))
+-- Scroll through existing workspaces with super + scroll
+hl.bind("SUPER + mouse_down", hl.dsp.focus({ workspace = "e-1" }))
+hl.bind("SUPER + mouse_up", hl.dsp.focus({ workspace = "++1" }))
+hl.bind("SUPER + page_up", hl.dsp.focus({ workspace = "e-1" }))
+hl.bind("SUPER + page_down", hl.dsp.focus({ workspace = "++1" }))
 
-hl.bind(mainMod .. "+ mouse:272", hl.dsp.window.drag(), { mouse = true })
-hl.bind(mainMod .. "+ mouse:273", hl.dsp.window.resize(), { mouse = true })
+hl.bind("SUPER+ mouse:272", hl.dsp.window.drag(), { mouse = true })
+hl.bind("SUPER+ mouse:273", hl.dsp.window.resize(), { mouse = true })
 
 -- Audio controls
 hl.bind("XF86AudioRaiseVolume", hl.dsp.exec_cmd("~/.scripts/set_volume.sh 5%+"), { description = "volume up" })
@@ -211,12 +196,12 @@ hl.bind(
 )
 
 -- Notification
-hl.bind(mainMod .. " + W", hl.dsp.exec_cmd("qs ipc call notifications dismissTop"))
-hl.bind(mainMod .. " + SHIFT+ W", hl.dsp.exec_cmd("qs ipc call notifications dismissAll"))
-hl.bind(mainMod .. " + CTRL + W", hl.dsp.exec_cmd("qs ipc call notifications hide"))
-hl.bind(mainMod .. " + CTRL + SHIFT+ W", hl.dsp.exec_cmd("qs ipc call notifications hideAll"))
-hl.bind(mainMod .. " + O", hl.dsp.exec_cmd("qs ipc call notifications action"))
-hl.bind(mainMod .. " + SHIFT + O", hl.dsp.exec_cmd("qs ipc call notifications toggleAll"))
+hl.bind("SUPER + W", hl.dsp.exec_cmd("qs ipc call notifications dismissTop"))
+hl.bind("SUPER + SHIFT+ W", hl.dsp.exec_cmd("qs ipc call notifications dismissAll"))
+hl.bind("SUPER + CTRL + W", hl.dsp.exec_cmd("qs ipc call notifications hide"))
+hl.bind("SUPER + CTRL + SHIFT+ W", hl.dsp.exec_cmd("qs ipc call notifications hideAll"))
+hl.bind("SUPER + O", hl.dsp.exec_cmd("qs ipc call notifications action"))
+hl.bind("SUPER + SHIFT + O", hl.dsp.exec_cmd("qs ipc call notifications toggleAll"))
 
 hl.window_rule({ float = true, match = { class = "xdg-desktop-portal-gtk" } })
 hl.window_rule({ float = true, match = { title = "Select what to share" } })
@@ -269,7 +254,7 @@ if hostname == "hitori" then
 		set_external(hl.get_monitor("DP-1") ~= nil)
 	end, { timeout = 500, type = "oneshot" }):set_enabled(true)
 
-	hl.bind(mainMod .. " + CTRL + P", toggle_external, { description = "reload monitor layout" })
+	hl.bind("SUPER + CTRL + P", toggle_external, { description = "reload monitor layout" })
 elseif hostname == "milize" then
 	hl.monitor({
 		output = "eDP-1",
