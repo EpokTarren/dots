@@ -68,6 +68,16 @@ if ! test -f "/proc/sys/fs/binfmt_misc/WSLInterop"; then
     cd $dir
   fi
 
+  if [ ! -d "./themes/$version/gtk-css" ]; then
+    cd "./themes/$version"
+
+    curl -L https://github.com/EpokTarren/themes/releases/download/v$version/tarrens-themes-v$version-gtk-css.tar.gz -o gtk-css.tar.gz
+    tar -xf gtk-css.tar.gz
+    rm gtk-css.tar.gz
+
+    cd $dir
+  fi
+
   if [ ! -d ~/.config/quickshell ]; then
     git clone git@github.com:EpokTarren/shell.git ~/.config/quickshell
     ln -s ~/.config/quickshell $dir

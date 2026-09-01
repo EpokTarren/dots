@@ -19,6 +19,7 @@ command -v ghostty > /dev/null && [[ ! -d ~/.config/ghostty ]] && ln -s "$PWD/gh
 
 # Create hyprland and echosystem symlinks
 command -v Hyprland > /dev/null && [[ ! -d ~/.config/hypr ]] && ln -s "$PWD/hypr" ~/.config
+command -v hyprland-preview-share-picker > /dev/null && [[ ! -d ~/.config/hyprland-preview-share-picker ]] && ln -s "$PWD/hyprland-preview-share-picker" ~/.config
 
 # Create uwsm symlink
 [[ ! -d ~/.config/uwsm ]] && ln -s "$PWD/uwsm" ~/.config/uwsm

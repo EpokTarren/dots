@@ -71,3 +71,8 @@ Singleton {
   readonly property string primary3: \"#$primary3\";
 }
 " > $local/quickshell/Theme.qml
+
+# hyprland-preview-share-picker
+cat $local/themes/$version/gtk-css/$normalized_.css \
+    $local/hyprland-preview-share-picker/main.css > \
+    $local/hyprland-preview-share-picker/themed.css

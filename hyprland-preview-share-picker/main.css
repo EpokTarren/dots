@@ -1,0 +1,102 @@
+:not(check) {
+    all: unset;
+    font-family: JetBrains Mono NF;
+    color: @plain;
+    font-weight: bold;
+    font-size: 11pt;
+}
+
+.window, flowboxchild > .card, button > .card, .image, .region-button {
+    border-radius: 10px;
+}
+
+.window {
+    background-color: alpha(@bg0, 0.8);
+    border: solid 2px;
+    border-color: @primary0;
+    margin: 2px;
+}
+
+tabs {
+    padding: 8px 16px;
+}
+
+tabs > tab {
+    margin-right: 16px;
+}
+
+.tab-label {
+    color: @plain;
+    opacity: 80%;
+    transition: all 0.2s ease;
+}
+
+tabs > tab:checked > .tab-label, tabs > tab:active > .tab-label {
+    text-decoration: underline currentColor;
+}
+
+tabs > tab:checked > .tab-label, tabs > tab:active > .tab-label, tabs > tab:focus > .tab-label {
+    color: @primary0;
+    opacity: 100%;
+}
+
+.page {
+    padding: 8px;
+}
+
+.image-label {
+    padding: 0.25rem;
+}
+
+flowboxchild > .card, button > .card {
+    transition: all 0.2s ease;
+    padding: 8px;
+    border: solid 2px @bg2;
+    border-radius: 10px;
+    background-color: alpha(@bg2, 0.8);
+}
+
+flowboxchild:active > .card, flowboxchild:selected > .card, button:active > .card, button:selected > .card, button:focus > .card {
+    border: solid 2px @primary2;
+}
+
+.region-button {
+    padding: 8px 16px;
+    background-color: @bg2;
+    transition: all 0.2s ease;
+}
+
+.region-button:not(:disabled):hover, .region-button:not(:disabled):focus {
+    background-color: @primary0;
+}
+
+.region-button:disabled {
+    background-color: @bg0;
+    color: @bg2;
+}
+
+.region-button:disabled label {
+    opacity: 70%;
+}
+
+.restore-button {
+    margin: 5px;
+}
+
+.restore-button check {
+    border: solid 2px @bg2;
+    border-radius: 3px;
+    margin: 8px;
+    background-color: @bg2;
+    background-image: none;
+}
+
+.restore-button:checked check {
+    color: @plain;
+    border-color: @primary0;
+    background-color: @primary0;
+}
+
+.restore-button check:hover, .restore-button check:focus {
+    border-color: @primary2;
+}
