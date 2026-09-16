@@ -19,6 +19,7 @@ echo "let g:theme_style = '$1'" > $dots/nvim/theme.vim
 echo "general.import = [\"$local/themes/$version/alacritty/$normalized_.toml\"]" > $dots/alacritty/theme.toml
 
 ### Helix ###
+ln -sf "$local/themes/$version/helix/" "$local/helix/themes"
 echo "inherits = \"$normalized\"
 
 \"ui.background\" = {}" > "$local/helix/themes/theme.toml"
