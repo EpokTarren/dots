@@ -75,7 +75,17 @@ hl.bind(
 hl.bind(
 	"SUPER + SHIFT + R",
 	hl.dsp.exec_cmd('rofi -show drun -run-command "$XDG_CONFIG_HOME/hypr/float.sh {cmd}"'),
-	{ description = "run prompt" }
+	{ description = "run prompt (float)" }
+)
+hl.bind(
+	"SUPER + CTRL + R",
+	hl.dsp.exec_cmd('rofi -show drun -drun-show-actions -run-command "$XDG_CONFIG_HOME/hypr/run.sh {cmd}"'),
+	{ description = "run prompt (actions)" }
+)
+hl.bind(
+	"SUPER + CTRL + SHIFT + R",
+	hl.dsp.exec_cmd('rofi -show drun -drun-show-actions -run-command "$XDG_CONFIG_HOME/hypr/float.sh {cmd}"'),
+	{ description = "run prompt (float, actions)" }
 )
 hl.bind("SUPER + TAB", hl.dsp.exec_cmd("rofi -show window -window-format '{c}: {t}'"), { description = "run prompt" })
 hl.bind(
