@@ -1,5 +1,9 @@
 #!/bin/sh
 
+if command -v qs; then
+    player_name="$(qs ipc call media playerName)"
+fi
+
 for p in $(playerctl -l)
 do
     if [[ $(playerctl status "--player=$p") == "Playing" ]]; then
@@ -8,6 +12,10 @@ do
     fi
 done
 
-playerctl $* "$player"
+if [[ "$player_name" == "" ]]; then
+    playerctl $* "$player"
+else
+    playerctl $* --player "${player_name//org.mpris.MediaPlayer2./}"
+fi
 
-qs ipc call notifications mediaNotification true
+[[ command -v qs ]] && qs ipc call notifications mediaNotification true
