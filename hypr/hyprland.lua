@@ -224,6 +224,15 @@ hl.window_rule({ move = { "(monitor_w-window_w-32)", 48 }, match = { class = "co
 hl.window_rule({ immediate = true, match = { initial_title = "osu!" } })
 hl.window_rule({ immediate = true, match = { class = "steam_app_*" } })
 
+hl.window_rule({
+	float = true,
+	center = true,
+	dim_around = true,
+	rounding = 0,
+	border_size = 0,
+	match = { class = "Feh" },
+})
+
 local hostname_handle = io.popen("hostname")
 local hostname
 if hostname_handle ~= nil then
