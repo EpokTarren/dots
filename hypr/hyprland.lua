@@ -36,6 +36,10 @@ hl.config({
 		vrr = 2,
 	},
 
+	render = {
+		cm_auto_hdr = true,
+	},
+
 	decoration = {
 		rounding = 10,
 		blur = {
