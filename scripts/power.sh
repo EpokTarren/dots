@@ -7,9 +7,9 @@ kill_browser() { hyprctl dispatch 'hl.dsp.send_shortcut({ mods = "CTRL", key = "
 
 case "$command" in
     "Idle")     sleep 2 && hyprctl dispatch 'hl.dsp.dpms({ action = "disable" })' ;;
-    "Lock")     sleep 2 && hyprctl dispatch 'hl.dsp.dpms({ action = "disable" })' && hyprlock -q ;;
+    "Lock")     sleep 2 && hyprctl dispatch 'hl.dsp.dpms({ action = "disable" })' && loginctl lock-session ;;
     "Logout")   kill_browser && hyprshutdown -t "Logging out..." --no-exit && uwsm stop ;;
-    "Sleep")    hyprlock -q & systemctl suspend ;;
+    "Sleep")    loginctl lock-session & systemctl suspend ;;
     "Restart")  kill_browser && hyprshutdown -t "Rebooting..." --post-cmd "reboot" ;;
     "Shutdown") kill_browser && hyprshutdown -t "Shutting down..." --post-cmd "shutdown now" ;;
 esac
