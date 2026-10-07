@@ -272,10 +272,18 @@ if hostname == "hitori" then
 		set_external(not hdmi_disabled)
 	end
 
-	set_external(true)
-	hl.timer(function()
+	local function ensure_display()
 		set_external(hl.get_monitor("DP-1") ~= nil)
-	end, { timeout = 500, type = "oneshot" }):set_enabled(true)
+	end
+
+	set_external(true)
+	hl.timer(ensure_display, { timeout = 500, type = "oneshot" }):set_enabled(true)
+
+	hl.on("monitor.layout_changed", function()
+		if hdmi_disabled then
+			hl.timer(ensure_display, { timeout = 5000, type = "oneshot" }):set_enabled(true)
+		end
+	end)
 
 	hl.bind("SUPER + CTRL + P", toggle_external, { description = "reload monitor layout" })
 elseif hostname == "milize" then
