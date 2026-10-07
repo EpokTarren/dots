@@ -42,14 +42,14 @@ pgrep Hyprland &> /dev/null && hyprctl reload &> /dev/null
 ### Parse colours ###
 colours=$(cat "$local/hypr/theme.conf")
 
-bg0=$(echo "$colours" | rg Bg0 | sed "s/.* = \(.*\)/\1/g")
-bg2=$(echo "$colours" | rg Bg2 | sed "s/.* = \(.*\)/\1/g")
-comp0=$(echo "$colours" | rg Comp0 | sed "s/.* = \(.*\)/\1/g")
-plain=$(echo "$colours" | rg Plain | sed "s/.* = \(.*\)/\1/g")
-primary0=$(echo "$colours" | rg Primary0 | sed "s/.* = \(.*\)/\1/g")
-primary1=$(echo "$colours" | rg Primary1 | sed "s/.* = \(.*\)/\1/g")
-primary2=$(echo "$colours" | rg Primary2 | sed "s/.* = \(.*\)/\1/g")
-primary3=$(echo "$colours" | rg Primary3 | sed "s/.* = \(.*\)/\1/g")
+bg0=$(echo "$colours" | grep Bg0 | sed "s/.* = \(.*\)/\1/g")
+bg2=$(echo "$colours" | grep Bg2 | sed "s/.* = \(.*\)/\1/g")
+comp0=$(echo "$colours" | grep Comp0 | sed "s/.* = \(.*\)/\1/g")
+plain=$(echo "$colours" | grep Plain | sed "s/.* = \(.*\)/\1/g")
+primary0=$(echo "$colours" | grep Primary0 | sed "s/.* = \(.*\)/\1/g")
+primary1=$(echo "$colours" | grep Primary1 | sed "s/.* = \(.*\)/\1/g")
+primary2=$(echo "$colours" | grep Primary2 | sed "s/.* = \(.*\)/\1/g")
+primary3=$(echo "$colours" | grep Primary3 | sed "s/.* = \(.*\)/\1/g")
 
 ### Rofi ###
 ln -sf "$local/themes/$version/rofi/$normalized.rasi" "$local/rofi/theme.rasi"
