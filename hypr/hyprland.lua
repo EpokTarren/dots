@@ -66,6 +66,10 @@ hl.config({
 	scrolling = {
 		explicit_column_widths = "0.3, 0.5, 0.7, 1.0",
 	},
+
+	xwayland = {
+		force_zero_scaling = true,
+	},
 })
 
 -- Launch
