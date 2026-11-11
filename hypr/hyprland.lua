@@ -55,7 +55,7 @@ hl.config({
 	cursor = {
 		enable_hyprcursor = true,
 		no_break_fs_vrr = 1,
-		inactive_timeout = 30,
+		inactive_timeout = 15,
 	},
 
 	binds = {
