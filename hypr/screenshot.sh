@@ -19,7 +19,7 @@ screenshot() {
 }
 
 notification() {
-    test ~/Screenshots/screenshot.wav && mpv ~/Screenshots/screenshot.wav &> /dev/null
+    test ~/Screenshots/screenshot.wav && mpv ~/Screenshots/screenshot.wav &> /dev/null &
     case "$(notify-send --icon "$1" --action "open=Open" --action "delete=Delete" --app-name "Screenshot" "$(basename $1)" -u low)" in
         "open")   xdg-open "$1" ;;
         "delete") rm       "$1" ;;
