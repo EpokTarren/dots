@@ -42,6 +42,10 @@ auto-format = true
 language-servers = [ "marksman", "ltex-ls-plus" ]
 
 [[language]]
+name = "json"
+formatter = { command = 'prettier', args = ["--parser", "json"] }
+
+[[language]]
 name = "latex"
 language-servers = [ "texlab", "ltex-ls-plus" ]
 
